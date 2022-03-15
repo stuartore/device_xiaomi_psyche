@@ -284,6 +284,9 @@ persist.vendor.sensors.sync_request=true
 # Shutdown
 sys.vendor.shutdown.waittime=500
 
+# Telephony
+telephony.active_modems.max_count=2
+
 # Thermal
 vendor.sys.thermal.data.path=/data/vendor/thermal/
 
