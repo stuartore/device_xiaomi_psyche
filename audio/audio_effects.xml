@@ -113,8 +113,6 @@
         <!--DOLBY END-->
     </effects>
     <postprocess>
-        <stream type="system">
-        </stream>
         <stream type="music">
         </stream>
         <stream type="ring">
