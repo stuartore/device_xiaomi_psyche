@@ -215,6 +215,7 @@ debug.sf.hw=0
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=true
 debug.sf.predict_hwc_composition_strategy=0
+debug.sf.treat_170m_as_sRGB=1
 persist.demo.hdmirotationlock=false
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
