@@ -78,6 +78,9 @@ on init
     # Allow both charger and hal_light to access panel0 backlight
     chown system system /sys/class/backlight/panel0-backlight/brightness
 
+    # Mount cgroup mount point for cpu accounting
+    mount cgroup none /acct cpuacct
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
