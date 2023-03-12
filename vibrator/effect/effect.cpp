@@ -44,37 +44,37 @@ static struct effect_stream effects[] = {
         .effect_id = 0,
         .data = 0,
         .length = 0,
-        .play_rate_hz = 24000,
+        .play_rate_hz = 48000,
     },
     {
         .effect_id = 1,
         .data = 0,
         .length = 0,
-        .play_rate_hz = 24000,
+        .play_rate_hz = 48000,
     },
     {
         .effect_id = 2,
         .data = 0,
         .length = 0,
-        .play_rate_hz = 24000,
+        .play_rate_hz = 48000,
     },
     {
         .effect_id = 3,
         .data = 0,
         .length = 0,
-        .play_rate_hz = 24000,
+        .play_rate_hz = 48000,
     },
     {
         .effect_id = 4,
         .data = 0,
         .length = 0,
-        .play_rate_hz = 24000,
+        .play_rate_hz = 48000,
     },
     {
         .effect_id = 5,
         .data = 0,
         .length = 0,
-        .play_rate_hz = 24000,
+        .play_rate_hz = 48000,
     },
 };
 
@@ -107,9 +107,9 @@ int parse_custom_data(effect_stream *effect) {
         return rc;
     }
 
-    // Create a persistent 8-bit int array which contains the fifo data, one
-    // slot of the array contains one byte of the fifo data from vendor.
-    int8_t *custom_data = new int8_t[effect->length];
+    // Create a persistent 16-bit int array which contains the fifo data, one
+    // slot of the array contains one 16-bit value of the fifo data from vendor.
+    int16_t *custom_data = new int16_t[effect->length/2];
 
     data.open(path, std::ios::in | std::ios::binary);
     data.read(reinterpret_cast<char *>(custom_data), effect->length);
