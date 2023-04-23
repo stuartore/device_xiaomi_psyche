@@ -79,3 +79,6 @@ debug.cpurend.vsync=false
 
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
+
+# Feature flags
+persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
