@@ -173,7 +173,30 @@ psyche_kernel_patch(){
 	psyche_kernel_path=$(grep TARGET_KERNEL_SOURCE device/xiaomi/psyche/BoardConfig.mk | grep -v '#' | sed 's/TARGET_KERNEL_SOURCE//g' | sed 's/:=//g' | sed 's/[[:space:]]//g')
 
 	rm -f $psyche_kernel_path/techpack/data/drivers/rmnet/perf/Android.mk
-	rm -f $psyche_kernel_path/techpack/data/drivers/rmnet/shs/Android.mk	
+	rm -f $psyche_kernel_path/techpack/data/drivers/rmnet/shs/Android.mk
+}
+
+psyche_allowlist_patch(){
+	if [[ ! $(grep 'psyche adds' build/soong/scripts/check_boot_jars/package_allowed_list.txt) ]];then
+		sh -c "$(echo '''
+# psyche adds
+com\.oplus\.os
+com\.oplus\.os\..*
+oplus\.content\.res
+oplus\.content\.res\..*
+vendor\.lineage\.livedisplay
+vendor\.lineage\.livedisplay\..*
+vendor\.lineage\.touch
+vendor\.lineage\.touch\..*
+ink\.kaleidoscope
+ink\.kaleidoscope\..*
+''' >> build/soong/scripts/check_boot_jars/package_allowed_list.txt)"
+	fi
+}
+
+psyche_patch(){
+	psyche_kernel_patch
+	psyche_allowlist_patch
 }
 
 psyche_rom_setup(){
@@ -190,6 +213,9 @@ psyche_rom_setup(){
 	cd ../../..
 
 	case $dt_branch in
+		"thirteen")
+			vendor_branch='thirteen'
+			;;
 		*)
 			vendor_branch='thirteen-unstable'
 	esac
@@ -202,4 +228,4 @@ psyche_rom_setup(){
 }
 
 psyche_rom_setup
-psyche_kernel_patch
+psyche_patch
