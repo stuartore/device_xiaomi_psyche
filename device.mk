@@ -182,8 +182,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Bluetooth LDAC
-PRODUCT_PACKAGES += \
-    libldacBT_bco
+#PRODUCT_PACKAGES += \
+#    libldacBT_bco
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -284,7 +284,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libdisplayconfig.qti \
-    libdisplayconfig.qti.vendor \
     libdisplayconfig.system.qti \
     libqdMetaData \
     libqdMetaData.system \
@@ -572,7 +571,7 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl-xiaomi \
-    android.hardware.sensors@1.0-service
+    android.hardware.sensors@1.0-service \
     android.hardware.sensors@2.0 \
     android.hardware.sensors@2.1 \
     android.frameworks.sensorservice@1.0 \

@@ -133,9 +133,6 @@
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:vadc@3100/iio:device1(/.*)?        u:object_r:vendor_sysfs_iio:s0
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.citsensorservice@1\.1-service                                  u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
 
-# Data Audio Access Directories
-/data/vendor/cit(/.*)?                                                  u:object_r:vendor_audio_data_file:s0
-
 # SSR
 /sys/devices(/platform)?/soc/[a-z0-9\.:]+,[a-z0-9\-\_]+/subsys[0-9]+/name         u:object_r:vendor_sysfs_ssr:s0
 
