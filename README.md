@@ -1,5 +1,9 @@
 Copyright (C) 2021 LineageOS
-
+## QuickStart
+```
+git clone https://github.com/stuartore/device_xiaomi_psyche.git -b thirteen device/xiaomi/psyche
+source build/envsetup.sh
+```
 Device configuration for Xiaomi Mi 12X (psyche)
 =========================================
 
