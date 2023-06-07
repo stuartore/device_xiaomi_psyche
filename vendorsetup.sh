@@ -190,9 +190,6 @@ psyche_rom_setup(){
 	cd ../../..
 
 	case $dt_branch in
-		"thirteen")
-			vendor_branch='thirteen'
-			;;
 		*)
 			vendor_branch='thirteen-unstable'
 	esac
