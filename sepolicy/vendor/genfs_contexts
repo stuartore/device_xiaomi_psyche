@@ -28,9 +28,17 @@ genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/irq                    
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/power_cfg              u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/request_vreg           u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable          u:object_r:vendor_sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/vendor                        u:object_r:vendor_sysfs_fingerprint:s0
+
+# Dc Dimming
+genfscon sysfs /class/drm/card0-DSI-1/disp_param                                              u:object_r:vendor_sysfs_graphics:s0
 
 # FPS Info
 genfscon sysfs /class/drm/sde-crtc-0/measured_fps                               u:object_r:vendor_sysfs_graphics:s0
+
+# Extcon sysfs
+genfscon sysfs /devices/platform/soc/soc:extcon_usb1/extcon                                                                         u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/extcon                            u:object_r:sysfs_extcon:s0
 
 # Health
 genfscon sysfs /class/power_supply/battery/capacity                                                 u:object_r:sysfs_battery_supply:s0
@@ -62,13 +70,13 @@ genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.q
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:switch_1/brightness             u:object_r:sysfs_leds:s0
 
 # RTC
-genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm8150@0:qcom,pm8150_rtc/rtc        u:object_r:sysfs_rtc:s0
 
 # Touchpanel
 genfscon sysfs /sys/class/touch/touch_dev/partial_diff_data                     u:object_r:sysfs_touchpanel:s0
 genfscon sysfs /sys/class/touch/touch_dev/palm_sensor                           u:object_r:sysfs_touchpanel:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate                u:object_r:sysfs_touchpanel:s0
 genfscon sysfs /touchpanel                                                      u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-3/3-0049                            u:object_r:vendor_sysfs_touch:s0
 
 # UFS
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable               u:object_r:vendor_sysfs_scsi_host:s0
@@ -137,6 +145,7 @@ genfscon sysfs /devices/platform/soc/soc:goodix_fp/wakeup                       
 genfscon sysfs /devices/platform/soc/soc:maxim_ds28e16/power_supply/batt_verify/wakeup                                                             u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:oem_rf_cable/wakeup                                                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,ipa_uc/wakeup                                                                                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-3/3-0049/wakeup                                                                         u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-cdsp/wakeup                                                                                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-dsps/wakeup                                                                                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-npu/wakeup                                                                                     u:object_r:sysfs_wakeup:s0

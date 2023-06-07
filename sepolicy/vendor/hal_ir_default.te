@@ -1,4 +1,5 @@
-allow hal_ir_default lirc_device:{
+type ir_spi_device, dev_type;
+allow hal_ir_default ir_spi_device:{
   chr_file
   file
 } rw_file_perms;

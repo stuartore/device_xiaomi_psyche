@@ -9,8 +9,10 @@
 #include "UdfpsHandler.h"
 
 #include <android-base/logging.h>
+#include <android-base/unique_fd.h>
 #include <fcntl.h>
 #include <poll.h>
+#include <fstream>
 #include <thread>
 #include <unistd.h>
 
@@ -18,10 +20,35 @@
 #define PARAM_NIT_FOD 1
 #define PARAM_NIT_NONE 0
 
+#define FOD_STATUS_ON 1
+#define FOD_STATUS_OFF -1
+
+#define TOUCH_DEV_PATH "/dev/xiaomi-touch"
+#define TOUCH_FOD_ENABLE 10
+#define TOUCH_MAGIC 0x5400
+#define TOUCH_IOC_SETMODE TOUCH_MAGIC + 0
+
+#define DISPPARAM_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param"
+
+#define DISPPARAM_HBM_ON "0x10000"
+#define DISPPARAM_HBM_FOD_ON "0x20000"
+#define DISPPARAM_HBM_OFF "0xF0000"
+#define DISPPARAM_HBM_FOD_OFF "0xE0000"
+
 static const char* kFodUiPaths[] = {
         "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui",
         "/sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui",
 };
+namespace {
+
+
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
+
+} // anonymous namespace
 
 static bool readBool(int fd) {
     char c;
@@ -46,6 +73,7 @@ class XiaomiKonaUdfpsHandler : public UdfpsHandler {
   public:
     void init(fingerprint_device_t *device) {
         mDevice = device;
+        touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
 
         std::thread([this]() {
             int fd;
@@ -74,29 +102,45 @@ class XiaomiKonaUdfpsHandler : public UdfpsHandler {
                     continue;
                 }
 
-                mDevice->extCmd(mDevice, COMMAND_NIT,
-                                readBool(fd) ? PARAM_NIT_FOD : PARAM_NIT_NONE);
-            }
+		switch (readBool(fd))
+		{
+			case true:{
+			    set(DISPPARAM_PATH, DISPPARAM_HBM_ON);
+			    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_ON};
+			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_FOD);
+			    break;
+			}
+			default:{
+			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_NONE);
+		       	    set(DISPPARAM_PATH, DISPPARAM_HBM_OFF);
+			    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_OFF};
+			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+			    break;
+			}
+		}
+          }
         }).detach();
     }
 
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
-        // nothing
+	//nothing
     }
 
     void onFingerUp() {
-        // nothing
+	//nothing
     }
 
-    void onAcquired(int32_t /*result*/, int32_t /*vendorCode*/) {
-        // nothing
+    void onAcquired(int32_t result, int32_t vendorCode) {
+        //nothing
     }
 
     void cancel() {
-        // nothing
+       	//nothing
     }
   private:
     fingerprint_device_t *mDevice;
+    android::base::unique_fd touch_fd_;
 };
 
 static UdfpsHandler* create() {

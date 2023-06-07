@@ -7,4 +7,5 @@ vndbinder_use(hal_touchfeature_xiaomi_default)
 binder_call(hal_touchfeature_xiaomi_default, hwservicemanager)
 add_hwservice(hal_touchfeature_xiaomi_default, hal_touchfeature_xiaomi_hwservice)
 get_prop(hal_touchfeature_xiaomi_default, hwservicemanager_prop)
+set_prop(hal_touchfeature_xiaomi_default, vendor_touchfeature_prop)
 allow hal_touchfeature_xiaomi_default vendor_touchfeature_device:chr_file rw_file_perms;

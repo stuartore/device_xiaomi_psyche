@@ -82,8 +82,8 @@ extern "C" {
 #define PTN_XBL_CFG                     "xbl_config"
 #define PTN_MULTIIMGOEM                 "multiimgoem"
 #define PTN_MULTIIMGQTI                 "multiimgqti"
-#define PTN_SWAP_LIST                   PTN_XBL, PTN_XBL_CFG, PTN_MULTIIMGOEM, PTN_MULTIIMGQTI, "abl", "aop", "cmnlib", "cmnlib64", "devcfg", "dsp", "dtbo", "featenabler", "hyp", "imagefv", "keymaster", "qupfw", "tz", "uefisecapp", "vbmeta", "vbmeta_system"
-#define AB_PTN_LIST PTN_SWAP_LIST, "bluetooth", "boot", "modem", "odm", "product", "system_ext", "system", "vendor", "vendor_boot"
+#define PTN_SWAP_LIST                   PTN_XBL, PTN_XBL_CFG, PTN_MULTIIMGOEM, PTN_MULTIIMGQTI, "sbl1", "rpm", "tz", "aboot", "abl", "hyp", "lksecapp", "keymaster", "cmnlib", "cmnlib32", "cmnlib64", "pmic", "apdp", "devcfg", "hosd", "keystore", "msadp", "mdtp", "mdtpsecapp", "dsp", "aop", "qupfw", "vbmeta", "dtbo", "imagefv", "ImageFv", "uefisecapp", "vm-bootsys", "shrm", "cpucp", "featenabler", "vbmeta_system"
+#define AB_PTN_LIST PTN_SWAP_LIST, "boot", "vendor_boot", "system", "system_ext", "product", "vendor", "odm", "modem", "bluetooth"
 #define BOOT_DEV_DIR    "/dev/block/bootdevice/by-name"
 
 /******************************************************************************

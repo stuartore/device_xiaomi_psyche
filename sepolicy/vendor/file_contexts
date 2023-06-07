@@ -11,24 +11,46 @@
 # Camera
 /mnt/vendor/persist/camera(/.*)?                                        u:object_r:camera_persist_file:s0
 /vendor/bin/remosaic_daemon                                             u:object_r:remosaic_daemon_exec:s0
-
-# CIT Display Service
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.citsensorservice@1\.1-service  u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
+# Camera motor
+/dev/drv8846_dev                                                        u:object_r:motor_device:s0
+/dev/ti-drv8846                                                         u:object_r:motor_device:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.motor@1.0-service              u:object_r:hal_motor_default_exec:s0
 
 # Charger
 /vendor/bin/batterysecret                                               u:object_r:batterysecret_exec:s0
+/vendor/bin/batteryd                                                    u:object_r:batteryd_exec:s0
+/vendor/bin/charge_logger                                                    u:object_r:charge_logger_exec:s0
+/data/vendor/charge_logger(/.*)?                                             u:object_r:vendor_charge_log_file:s0
+/sys/class/qcom-battery(/.*)?                                                u:object_r:sysfs_battery_supply:s0
 
 # Data Audio Access Directories
 /data/vendor/cit(/.*)?                                                  u:object_r:vendor_audio_data_file:s0
 
-# Display
+# Graphics nodes
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/disp_param              u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/dynamic_fps             u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/hbm_status              u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info              u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/smart_fps_value         u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/thermal_hbm_disabled    u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,msm-ext-disp/extcon/extcon0(/.*)?                                    u:object_r:vendor_sysfs_graphics:s0
 
+# Display Panel Features
+/sys/class/drm/card0/card0-DSI-1/disp_param                              u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param u:object_r:vendor_sysfs_graphics:s0
+/sys/class/backlight/panel0-backlight/brightness                         u:object_r:vendor_sysfs_graphics:s0
+/sys/class/backlight/panel0-backlight/brightness_clone                   u:object_r:vendor_sysfs_graphics:s0
+/sys/class/drm/card0-DSI-1/disp_param                                    u:object_r:vendor_sysfs_graphics:s0
+/sys/class/drm/card0-DSI-1/dim_alpha                                     u:object_r:vendor_sysfs_graphics:s0
+/sys/class/drm/card0-DSI-1/doze_brightness                               u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb0/msm_fb_dispparam                       u:object_r:vendor_sysfs_graphics:s0
+/sys/class/mi_display/disp-DSI-0/wp_info                                 u:object_r:vendor_sysfs_graphics:s0
+/sys/class/mi_display/disp-DSI-0                                         u:object_r:vendor_sysfs_graphics:s0
+/sys/class/mi_display/disp-DSI-1                                         u:object_r:vendor_sysfs_graphics:s0
+
+# Displayfeature
+/vendor/bin/displayfeature                                              u:object_r:vendor_displayfeature_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.displayfeature@1\.0-service    u:object_r:vendor_hal_displayfeature_xiaomi_default_exec:s0
 # UFS Devices
 /dev/block/platform/soc/1d84000.ufshc/by-name/msadp                     u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdm1m9kefs[0-9]           u:object_r:vendor_efs_boot_dev:s0
@@ -37,8 +59,11 @@
 /dev/elliptic(.*)?                                                      u:object_r:ultrasound_device:s0
 /dev/mius(.*)?                                                          u:object_r:ultrasound_device:s0
 
+# Fastcharge
+/vendor/bin/hw/vendor\.lineage\.fastcharge@1\.0-service\.psyche                u:object_r:hal_lineage_fastcharge_default_exec:s0
+
 # Fingerprint
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2.3-service\.xiaomi                           u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi                          u:object_r:hal_fingerprint_default_exec:s0
 
 # Fingerprint - devices
 /dev/goodix_fp                                                          u:object_r:fingerprint_device:s0
@@ -48,6 +73,9 @@
 /data/vendor/goodix(/.*)?                                               u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/fpc(/.*)?                                                  u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/fpdump(/.*)?                                               u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/gf_data(/.*)?                                  u:object_r:fingerprint_vendor_data_file:s0
+/mnt/vendor/persist/fpc(/.*)?                               u:object_r:fingerprint_vendor_data_file:s0
+/mnt/vendor/persist/goodix(/.*)?                            u:object_r:fingerprint_vendor_data_file:s0
 
 # FPS Info
 /sys/class/drm/sde-crtc-0/measured_fps                               u:object_r:vendor_sysfs_graphics:s0
@@ -61,9 +89,9 @@
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/wireless(/.*)?         u:object_r:sysfs_wireless_supply:s0
 
 # IR
-/dev/ir_spi                                                             u:object_r:lirc_device:s0
-/dev/lirc[0-9]                                                          u:object_r:lirc_device:s0
-/dev/spidev[0-9]\.1                                                     u:object_r:lirc_device:s0
+/dev/ir_spi                                                             u:object_r:ir_spi_device:s0
+/dev/lirc[0-9]                                                          u:object_r:ir_spi_device:s0
+/dev/spidev[0-9]\.1                                                     u:object_r:ir_spi_device:s0
 
 # LED
 /sys/devices/platform/soc/[a-z0-9]+.qcom,spmi/spmi-[0-1]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,leds@d000/leds(/.*)?            u:object_r:sysfs_leds:s0
@@ -79,11 +107,15 @@
 # Mlipay
 /vendor/bin/mlipayd@1\.1                                                u:object_r:hal_mlipay_default_exec:s0
 
+# Dtool
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.dtool@1\.0-service                  u:object_r:vendor_dtool_exec:s0
+
+# Micharge
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.micharge@1\.0-service               u:object_r:hal_micharge_default_exec:s0
+
 # MiSys
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@1\.0-service                                             u:object_r:hal_misys_default_exec:s0
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@2\.0-service                                             u:object_r:hal_misys_default_exec:s0
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@3\.0-service                                             u:object_r:hal_misys_default_exec:s0
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@4\.0-service                                             u:object_r:hal_misys_default_exec:s0
 
 # NFC
 /vendor/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service                u:object_r:hal_nfc_default_exec:s0
@@ -92,13 +124,17 @@
 /mnt/vendor/persist/subsys(/.*)?                                        u:object_r:persist_subsys_file:s0
 
 # Power
-/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr      u:object_r:hal_power_default_exec:s0
+/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-sm8250-libperfmgr      u:object_r:hal_power_default_exec:s0
 
 # Sensors
 /dev/akm09970                                                                                                                   u:object_r:hall_device:s0
 /sys/bus/iio/devices                                                                                                            u:object_r:vendor_sysfs_iio:s0
 /sys/devices/platform/us_prox.0/iio:device3(/.*)?                                                                               u:object_r:vendor_sysfs_iio:s0
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:vadc@3100/iio:device1(/.*)?        u:object_r:vendor_sysfs_iio:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.citsensorservice@1\.1-service                                  u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
+
+# Data Audio Access Directories
+/data/vendor/cit(/.*)?                                                  u:object_r:vendor_audio_data_file:s0
 
 # SSR
 /sys/devices(/platform)?/soc/[a-z0-9\.:]+,[a-z0-9\-\_]+/subsys[0-9]+/name         u:object_r:vendor_sysfs_ssr:s0
@@ -115,12 +151,17 @@
 
 # Xiaomi Touch
 /dev/xiaomi-touch                                                       u:object_r:vendor_touchfeature_device:s0
+/sys/devices/virtual/touch/touch_dev/palm_sensor            u:object_r:vendor_sysfs_tp_virtual_prox:s0
 
 # USB
 /vendor/bin/init\.mi\.usb\.sh                                           u:object_r:vendor_qti_init_shell_exec:s0
 
 # Vibrator
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_kona    u:object_r:hal_vibrator_default_exec:s0
+
+# Vibrator Permissions
+/sys/class/leds/vibrator_aw8697(/.*)?                                                   u:object_r:sysfs_leds:s0
+/sys/class/leds/vibrator(/.*)?                                                          u:object_r:sysfs_leds:s0
 
 # WiFi
 /vendor/bin/nv_mac                                                      u:object_r:vendor_wcnss_service_exec:s0
