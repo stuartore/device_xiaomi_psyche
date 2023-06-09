@@ -11,6 +11,7 @@
 # Camera
 /mnt/vendor/persist/camera(/.*)?                                        u:object_r:camera_persist_file:s0
 /vendor/bin/remosaic_daemon                                             u:object_r:remosaic_daemon_exec:s0
+
 # Camera motor
 /dev/drv8846_dev                                                        u:object_r:motor_device:s0
 /dev/ti-drv8846                                                         u:object_r:motor_device:s0
@@ -51,6 +52,7 @@
 # Displayfeature
 /vendor/bin/displayfeature                                              u:object_r:vendor_displayfeature_exec:s0
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.displayfeature@1\.0-service    u:object_r:vendor_hal_displayfeature_xiaomi_default_exec:s0
+
 # UFS Devices
 /dev/block/platform/soc/1d84000.ufshc/by-name/msadp                     u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdm1m9kefs[0-9]           u:object_r:vendor_efs_boot_dev:s0
@@ -116,6 +118,7 @@
 # MiSys
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@1\.0-service                                             u:object_r:hal_misys_default_exec:s0
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@2\.0-service                                             u:object_r:hal_misys_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@3\.0-service                                             u:object_r:hal_misys_default_exec:s0
 
 # NFC
 /vendor/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service                u:object_r:hal_nfc_default_exec:s0
