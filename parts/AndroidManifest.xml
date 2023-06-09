@@ -26,6 +26,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
@@ -34,12 +36,28 @@
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
 
-        <receiver android:name=".BootCompletedReceiver" android:exported="true">
+        <receiver android:name=".BootCompletedReceiver" android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".display.DoubleTapSettingsActivity"
+            android:label="@string/dt2w_enable_title"
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/dt2w_enable_summary" />
+        </activity>
 
         <activity
             android:name=".dirac.DiracActivity"
@@ -55,23 +73,28 @@
                        android:resource="@string/dirac_summary" />
         </activity>
 
+        <service android:name=".doze.DozeService"
+                 android:exported="true"
+                 android:permission="XiaomiDozeService">
+        </service>
+
         <service
             android:name=".thermal.ThermalService"
             android:exported="true"
             android:permission="ThermalService">
         </service>
 
-        <service
-            android:name=".display.DcDimmingTileService"
-            android:exported="true"
-            android:icon="@drawable/ic_dc_tile"
-            android:label="@string/dc_dimming_enable_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <activity
+            android:name=".doze.DozeSettingsActivity"
+            android:label="@string/ambient_display_title"
+            android:exported="true">
             <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
-        </service>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+        </activity>
 
         <service
             android:name=".dirac.DiracTileService"
@@ -86,11 +109,22 @@
             android:value="true" />
         </service>
 
+        <service
+            android:name=".thermal.ThermalTileService"
+            android:icon="@drawable/ic_thermal"
+            android:label="@string/thermal_title"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".thermal.ThermalActivity"
             android:label="@string/thermal_title"
-            android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase_v31">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -102,7 +136,7 @@
                 android:resource="@string/thermal_summary" />
             <meta-data
                 android:name="com.android.settings.order"
-                android:value="1" />
+                android:value="99" />
         </activity>
 
         <service
@@ -120,11 +154,10 @@
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
             android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase_v31">
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
-
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.ia.display" />
@@ -140,23 +173,6 @@
         </service>
 
         <activity
-            android:name=".display.DcDimmingSettingsActivity"
-            android:label="@string/dc_dimming_enable_title"
-            android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.display" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/dc_dimming_enable_summary" />
-        </activity>
-
-        <activity
             android:name=".speaker.ClearSpeakerActivity"
             android:label="@string/clear_speaker_title"
             android:exported="true">
@@ -170,5 +186,70 @@
                 android:name="com.android.settings.summary"
                 android:resource="@string/clear_speaker_summary" />
         </activity>
+
+        <activity
+            android:name=".hbm.HBMActivity"
+            android:label="@string/hbm_fragment_title"
+            android:exported="false"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/hbm_fragment_summary" />
+        </activity>
+
+        <activity 
+            android:name=".hbm.HBMFragment" />
+
+        <service
+            android:name=".hbm.AutoHBMService"
+            android:exported="false" />
+
+        <service
+            android:name=".hbm.HBMModeTileService"
+            android:icon="@drawable/ic_hbm_tile"
+            android:label="@string/hbm_mode_title"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".display.DcDimmingSettingsActivity"
+            android:label="@string/dc_dimming_enable_title"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/dc_dimming_enable_summary" />
+        </activity>
+
+        <service
+            android:name=".display.DcDimmingTileService"
+            android:icon="@drawable/ic_dc_tile"
+            android:label="@string/dc_dimming_enable_title"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
     </application>
 </manifest>

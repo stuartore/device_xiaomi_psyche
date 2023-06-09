@@ -6,6 +6,10 @@
   *;
 }
 
+-keep class org.lineageos.settings.doze.* {
+  *;
+}
+
 -keep class org.lineageos.settings.speaker.* {
   *;
 }
@@ -17,3 +21,4 @@
 -keep class org.lineageos.settings.thermal.* {
   *;
 }
+
