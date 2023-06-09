@@ -129,6 +129,16 @@ vendor/etc/acdbdata/Tutu/Tutu_Headset_cal.acdb
 vendor/etc/acdbdata/Tutu/Tutu_Speaker_cal.acdb
 vendor/etc/acdbdata/Tutu/Tutu_workspaceFile.qwsp
 
+# Bluetooth (LDAC & LHDC)
+system/lib/libldacBT_abr.so
+system/lib/libldacBT_enc.so
+system/lib/liblhdcBT_enc.so
+system/lib/liblhdc.so
+system/lib64/libldacBT_abr.so
+system/lib64/libldacBT_enc.so
+system/lib64/liblhdcBT_enc.so
+system/lib64/liblhdc.so
+
 # Audio - MIUI
 vendor/bin/audioflacapp
 vendor/lib/hw/audio.primary.kona.so
