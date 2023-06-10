@@ -1,1 +1,2 @@
 require board=psyche
+require version-miui=V13.0.10.0.SLDCNXM
