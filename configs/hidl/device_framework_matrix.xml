@@ -12,6 +12,23 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- lineage -->
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.livedisplay</name>
+        <version>2.0</version>
+        <interface>
+	    <name>IPictureAdjustment</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.livedisplay</name>
+        <version>2.1</version>
+        <interface>
+	    <name>ISunlightEnhancement</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.bluetooth.audio</name>
         <version>2.0-1</version>
@@ -35,6 +52,7 @@
     <hal format="aidl" optional="true">
         <name>android.hardware.power</name>
         <version>2</version>
+        <version>3</version>
         <interface>
             <name>IPower</name>
             <instance>default</instance>
@@ -47,6 +65,14 @@
             <name>IVibrator</name>
             <instance>vibratorfeature</instance>
         </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.boot</name>
+        <version>1.2</version>
+        <interface>
+            <name>IBootControl</name>
+	    <instance>default</instance>
+	</interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.usb</name>
