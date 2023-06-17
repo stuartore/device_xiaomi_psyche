@@ -585,8 +585,7 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1 \
     android.frameworks.sensorservice@1.0 \
     android.frameworks.sensorservice@1.0.vendor \
-    libsensorndkbridge \
-    sensors.psyche_udfps
+    libsensorndkbridge
 
 PRODUCT_PACKAGES += \
     libsensorndkbridge

@@ -35,6 +35,8 @@
 #define DISPPARAM_HBM_OFF "0xF0000"
 #define DISPPARAM_HBM_FOD_OFF "0xE0000"
 
+#define DISPPARAM_DC_ON "0x40000"
+
 static const char* kFodUiPaths[] = {
         "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui",
         "/sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui",
@@ -114,6 +116,7 @@ class XiaomiKonaUdfpsHandler : public UdfpsHandler {
 			default:{
 			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_NONE);
 		       	    set(DISPPARAM_PATH, DISPPARAM_HBM_OFF);
+		       	    set(DISPPARAM_PATH, DISPPARAM_DC_ON);
 			    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_OFF};
 			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
 			    break;
