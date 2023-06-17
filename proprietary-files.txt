@@ -1494,7 +1494,6 @@ vendor/etc/sensors/config/tmd3719.json
 vendor/etc/sensors/judge_calibrated.json
 vendor/etc/sensors/sensor_diag.cfg
 vendor/etc/sensors/sns_reg_config
-vendor/etc/sensors/hals.conf
 vendor/etc/sensors/proto/descriptor.proto
 vendor/etc/sensors/proto/nanopb.proto
 vendor/etc/sensors/proto/sns_accel_cal.proto
@@ -2249,11 +2248,11 @@ system/etc/permissions/vendor.xiaomi.hardware.misys.V3_0-permission.xml
 system/framework/vendor.xiaomi.hardware.misys-V1.0-java.jar
 system/framework/vendor.xiaomi.hardware.misys-V2.0-java.jar
 system/framework/vendor.xiaomi.hardware.misys.V3_0.jar
-system/lib/libmisys_jni.xiaomi.so
+system/lib/libmisys_jni.so
 system/lib/vendor.xiaomi.hardware.misys@1.0.so
 system/lib/vendor.xiaomi.hardware.misys@2.0.so
 system/lib/vendor.xiaomi.hardware.misys@3.0.so
-system/lib64/libmisys_jni.xiaomi.so
+system/lib64/libmisys_jni.so
 system/lib64/vendor.xiaomi.hardware.misys@1.0.so
 system/lib64/vendor.xiaomi.hardware.misys@2.0.so
 system/lib64/vendor.xiaomi.hardware.misys@3.0.so
