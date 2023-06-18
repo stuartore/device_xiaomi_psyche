@@ -318,6 +318,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor
 
+# QTI
+TARGET_COMMON_QTI_COMPONENTS := \
+    qseecomd
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
