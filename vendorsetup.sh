@@ -136,6 +136,7 @@ dt_bringup(){
 				;;
 			"cherish")
 				cherish_specs $dt_new_main_mk
+				;;
 			*)
 				aosp_specs $dt_new_main_mk
 				;;
