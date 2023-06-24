@@ -66,6 +66,16 @@ TARGET_SUPPORTS_GOOGLE_RECORDER := true
 SPECS
 }
 
+cherish_specs(){
+	cat>>$1<<SPECS
+CHERISH_VANILLA := true
+CHERISH_BUILD_TYPE := UNOFFICIAL
+TARGET_USE_PIXEL_LAUNCHER := false
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.cherish.maintainer=斯图尔特
+SPECS
+}
+
 aosp_specs(){
 	cat>>$1<<SPECS
 TARGET_USES_MINI_GAPPS := true
@@ -124,6 +134,8 @@ dt_bringup(){
 			"pixys")
 				pixys_specs $dt_new_main_mk
 				;;
+			"cherish")
+				cherish_specs $dt_new_main_mk
 			*)
 				aosp_specs $dt_new_main_mk
 				;;
