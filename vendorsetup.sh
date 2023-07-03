@@ -127,6 +127,7 @@ dt_bringup(){
 				;;
 			"superior")
 				superior_specs $dt_new_main_mk
+    				sed -i 's/common_full_phone/common/g' $dt_new_main_mk
 				;;
 			"derp")
 				derpfest_specs $dt_new_main_mk
