@@ -161,7 +161,7 @@ psyche_deps(){
 
 	git_check_dir https://github.com/ArrowOS-Devices/android_hardware_xiaomi arrow-13.1 hardware/xiaomi
 
-	git_check_dir https://github.com/Psyche-development/platform_device_xiaomi_psyche $1 device/xiaomi/psyche
+	git_check_dir https://github.com/stuartore/device_xiaomi_psyche $1 device/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/android_vendor_xiaomi_psyche $2 vendor/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/vendor_xiaomi_psyche-firmware thirteen vendor/xiaomi-firmware/psyche
 	git_check_dir https://github.com/VoidUI-Devices/kernel_xiaomi_sm8250 aosp-13 kernel/xiaomi/void-aosp-sm8250
