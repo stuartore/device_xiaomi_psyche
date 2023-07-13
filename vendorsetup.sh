@@ -138,6 +138,10 @@ dt_bringup(){
 			"cherish")
 				cherish_specs $dt_new_main_mk
 				;;
+			"evolution")
+				sed -i 's/ro.com.android.dataroaming=true//g' vendor.prop
+				aosp_specs $dt_new_main_mk
+				;;
 			*)
 				aosp_specs $dt_new_main_mk
 				;;
