@@ -160,7 +160,7 @@ git_check_dir(){
 psyche_deps(){
 	# use git_check_dir to setup dependencies
 
-	git_check_dir https://github.com/ArrowOS-Devices/android_hardware_xiaomi arrow-13.1 hardware/xiaomi
+	git_check_dir https://github.com/Evolution-X/hardware_xiaomi tiramisu hardware/xiaomi
 
 	git_check_dir https://github.com/stuartore/device_xiaomi_psyche $1 device/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/android_vendor_xiaomi_psyche $2 vendor/xiaomi/psyche
