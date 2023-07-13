@@ -11,29 +11,27 @@
 #include <android-base/logging.h>
 #include <android-base/unique_fd.h>
 #include <fcntl.h>
-#include <poll.h>
 #include <fstream>
+#include <poll.h>
 #include <thread>
 #include <unistd.h>
 
 #define COMMAND_NIT 10
-#define PARAM_NIT_FOD 1
+#define PARAM_NIT_UDFPS 1
 #define PARAM_NIT_NONE 0
 
-#define FOD_STATUS_ON 1
-#define FOD_STATUS_OFF -1
+#define UDFPS_STATUS_ON 1
+#define UDFPS_STATUS_OFF -1
 
 #define TOUCH_DEV_PATH "/dev/xiaomi-touch"
-#define TOUCH_FOD_ENABLE 10
+#define TOUCH_UDFPS_ENABLE 10
 #define TOUCH_MAGIC 0x5400
 #define TOUCH_IOC_SETMODE TOUCH_MAGIC + 0
 
 #define DISPPARAM_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param"
 
-#define DISPPARAM_HBM_ON "0x10000"
-#define DISPPARAM_HBM_FOD_ON "0x20000"
-#define DISPPARAM_HBM_OFF "0xF0000"
-#define DISPPARAM_HBM_FOD_OFF "0xE0000"
+#define DISPPARAM_HBM_UDFPS_ON "0x20001"
+#define DISPPARAM_HBM_UDFPS_OFF "0xE0000"
 
 #define DISPPARAM_DC_ON "0x40000"
 
@@ -107,17 +105,17 @@ class XiaomiKonaUdfpsHandler : public UdfpsHandler {
 		switch (readBool(fd))
 		{
 			case true:{
-			    set(DISPPARAM_PATH, DISPPARAM_HBM_ON);
-			    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_ON};
+			    set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_ON);
+			    int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_ON};
 			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
-			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_FOD);
+			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_UDFPS);
 			    break;
 			}
 			default:{
 			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_NONE);
-		       	    set(DISPPARAM_PATH, DISPPARAM_HBM_OFF);
-		       	    set(DISPPARAM_PATH, DISPPARAM_DC_ON);
-			    int arg[2] = {TOUCH_FOD_ENABLE, FOD_STATUS_OFF};
+		       	set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
+		       	set(DISPPARAM_PATH, DISPPARAM_DC_ON);
+			    int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_OFF};
 			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
 			    break;
 			}

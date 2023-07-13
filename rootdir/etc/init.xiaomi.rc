@@ -7,25 +7,23 @@
 import /vendor/etc/init/init.batterysecret.rc
 import /vendor/etc/init/init.batteryd.rc
 
-# Fingerprint
 on init
+    # fingerprint
     chmod 0664 /dev/fortsense_fp
     chown system system /dev/fortsense_fp
-
     chmod 0666 /dev/goodix_fp
     chown system system /dev/goodix_fp
 
 on post-fs-data
-    # Create fingerprint related directory
+    # fingerprint
+    mkdir /data/vendor/fortsense 0770 system system
     mkdir /data/vendor/fpc 0770 system system
-    mkdir /data/vendor/goodix 0770 system system
     mkdir /data/vendor/fpdump 0770 system system
-    mkdir /mnt/vendor/persist/goodix 0770 system system
+    mkdir /data/vendor/goodix 0770 system system
     mkdir /mnt/vendor/persist/fpc 0770 system system
+    mkdir /mnt/vendor/persist/goodix 0770 system system
 on boot
-    # Dc Dimming
-    chown system system /sys/class/drm/card0-DSI-1/disp_param
-    chmod 0660 /sys/class/drm/card0-DSI-1/disp_param
+    # fingerprint
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq_enable
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
@@ -48,9 +46,16 @@ on boot
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/finger_irq
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/request_vreg
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/power_cfg
-    chown system system /dev/input/event2
-    chmod 0666 /dev/input/event2
 
+    chown system system /sys/class/drm/card0-DSI-1/disp_param
+    chmod 0700 /sys/class/drm/card0-DSI-1/disp_param
+    chown system system /sys/class/drm/card0-DSI-1/panel_info
+    chmod 0744 /sys/class/drm/card0-DSI-1/panel_info
+    chmod 0666 /dev/input/event2
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui
+    chmod 0444 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui
+    chown system system /sys/class/drm/card0-DSI-1/fod_ui_ready
+    chmod 0660 /sys/class/drm/card0-DSI-1/fod_ui_ready
     chown system system /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param
     chmod 0660 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param
 
