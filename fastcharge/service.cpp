@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2023 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "fastcharge@1.0-service.psyche"
+#define LOG_TAG "fastcharge@1.0-service.xiaomi_sm8250"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
@@ -31,20 +31,20 @@ using android::OK;
 using android::status_t;
 
 int main() {
-    android::sp<FastCharge> service = new FastCharge();
+  android::sp<FastCharge> service = new FastCharge();
 
-    configureRpcThreadpool(1, true);
+  configureRpcThreadpool(1, true);
 
-    status_t status = service->registerAsService();
-    if (status != OK) {
-        LOG(ERROR) << "Cannot register FastCharge HAL service.";
-        return 1;
-    }
-
-    LOG(INFO) << "FastCharge HAL service ready.";
-
-    joinRpcThreadpool();
-
-    LOG(ERROR) << "FastCharge HAL service failed to join thread pool.";
+  status_t status = service->registerAsService();
+  if (status != OK) {
+    LOG(ERROR) << "Cannot register FastCharge HAL service.";
     return 1;
+  }
+
+  LOG(INFO) << "FastCharge HAL service ready.";
+
+  joinRpcThreadpool();
+
+  LOG(ERROR) << "FastCharge HAL service failed to join thread pool.";
+  return 1;
 }

@@ -340,7 +340,7 @@ PRODUCT_COPY_FILES += \
 
 # Fastcharge
 PRODUCT_PACKAGES += \
-    vendor.lineage.fastcharge@1.0-service.psyche
+    vendor.lineage.fastcharge@1.0-service.xiaomi_sm8250
 
 # Charge
 PRODUCT_VENDOR_PROPERTIES += \

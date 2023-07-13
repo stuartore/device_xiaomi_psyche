@@ -15,6 +15,8 @@ allow hal_lineage_fastcharge_default {
 
 allow hal_lineage_fastcharge_default sysfs_battery_supply:dir search;
 allow hal_lineage_fastcharge_default sysfs_battery_supply:file rw_file_perms;
+allow hal_lineage_fastcharge_default vendor_sysfs_battery_supply:dir search;
+allow hal_lineage_fastcharge_default vendor_sysfs_battery_supply:file rw_file_perms;
 
 allow hal_lineage_fastcharge_default hal_micharge_hwservice:hwservice_manager { add find };
 allow hal_lineage_fastcharge_default hwservicemanager:binder { call transfer };

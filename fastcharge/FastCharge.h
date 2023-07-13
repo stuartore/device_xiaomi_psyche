@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020-2022 The LineageOS Project
+ * Copyright (C) 2023 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,16 +36,15 @@ using ::android::hardware::Void;
 
 using ::vendor::lineage::fastcharge::V1_0::IFastCharge;
 
-
 struct FastCharge : public IFastCharge {
-    FastCharge();
+  FastCharge();
 
-    Return<bool> isEnabled() override;
-    Return<bool> setEnabled(bool enable) override;
+  Return<bool> isEnabled() override;
+  Return<bool> setEnabled(bool enable) override;
 };
 
-}  // namespace implementation
-}  // namespace V1_0
-}  // namespace fastcharge
-}  // namespace lineage
-}  // namespace vendor
+} // namespace implementation
+} // namespace V1_0
+} // namespace fastcharge
+} // namespace lineage
+} // namespace vendor
