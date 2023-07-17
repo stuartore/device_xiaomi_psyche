@@ -16,12 +16,10 @@
 #include <thread>
 #include <unistd.h>
 
-// Fingerprint hwmodule commands
 #define COMMAND_NIT 10
 #define PARAM_NIT_UDFPS 1
 #define PARAM_NIT_NONE 0
 
-// Touchscreen and HBM
 #define UDFPS_STATUS_ON 1
 #define UDFPS_STATUS_OFF -1
 
@@ -34,6 +32,8 @@
 
 #define DISPPARAM_HBM_UDFPS_ON "0x20001"
 #define DISPPARAM_HBM_UDFPS_OFF "0xE0000"
+
+#define DISPPARAM_DC_ON "0x40000"
 
 static const char* kFodUiPaths[] = {
         "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui",
@@ -102,39 +102,42 @@ class XiaomiKonaUdfpsHandler : public UdfpsHandler {
                     continue;
                 }
 
-                mDevice->extCmd(mDevice, COMMAND_NIT,
-                                readBool(fd) ? PARAM_NIT_UDFPS : PARAM_NIT_NONE);
-            }
+		switch (readBool(fd))
+		{
+			case true:{
+			    set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_ON);
+			    int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_ON};
+			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_UDFPS);
+			    break;
+			}
+			default:{
+			    mDevice->extCmd(mDevice, COMMAND_NIT, PARAM_NIT_NONE);
+		       	set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
+		       	set(DISPPARAM_PATH, DISPPARAM_DC_ON);
+			    int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_OFF};
+			    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+			    break;
+			}
+		}
+          }
         }).detach();
     }
 
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
-        set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_ON);
+	//nothing
     }
 
     void onFingerUp() {
-        set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
+	//nothing
     }
 
     void onAcquired(int32_t result, int32_t vendorCode) {
-        if (result == FINGERPRINT_ACQUIRED_GOOD) {
-	       	set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
-		    int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_OFF};
-		    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
-        } else if (vendorCode == 21 || vendorCode == 23) {
-            /*
-             * vendorCode = 21 waiting for fingerprint authentication
-             * vendorCode = 23 waiting for fingerprint enroll
-             */
-		    int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_ON};
-		    ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
-        }
+        //nothing
     }
 
     void cancel() {
-		set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
-		int arg[2] = {TOUCH_UDFPS_ENABLE, UDFPS_STATUS_OFF};
-		ioctl(touch_fd_.get(), TOUCH_IOC_SETMODE, &arg);
+       	//nothing
     }
   private:
     fingerprint_device_t *mDevice;
