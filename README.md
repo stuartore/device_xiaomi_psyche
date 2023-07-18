@@ -1,8 +1,9 @@
 Copyright (C) 2021 LineageOS
-## QuickStart
+## Twoline Build
 ```
-git clone https://github.com/stuartore/device_xiaomi_psyche.git -b thirteen-staging device/xiaomi/psyche
-source build/envsetup.sh
+git clone https://github.com/stuartore/aosp-setup.git && cd aosp-setup
+
+bash aosp.sh -k --auto_build
 ```
 Device configuration for Xiaomi Mi 12X (psyche)
 =========================================
