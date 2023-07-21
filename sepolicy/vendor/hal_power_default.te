@@ -1,3 +1,5 @@
+type vendor_sysfs_double_tap, sysfs_type, fs_type;
+
 binder_call(hal_power_default, hal_graphics_composer_default);
 
 # Allow hal_power_default to write to dt2w nodes
@@ -42,5 +44,6 @@ set_prop(hal_power_default, vendor_power_prop)
 # Touch Feature
 type vendor_touchfeature_device, dev_type;
 
+allow hal_power_default vendor_sysfs_double_tap:file rw_file_perms;
 allow hal_power_default vendor_touchfeature_device:chr_file rw_file_perms;
 allow hal_power_default self:capability { sys_admin };

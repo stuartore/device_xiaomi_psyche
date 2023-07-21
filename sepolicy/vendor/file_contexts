@@ -38,6 +38,7 @@
 
 # Display Panel Features
 /sys/class/drm/card0/card0-DSI-1/disp_param                              u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/soc/soc:qcom,dsi-display-primary/mi_display/disp-DSI-0/dynamic_fps     u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param u:object_r:vendor_sysfs_graphics:s0
 /sys/class/backlight/panel0-backlight/brightness                         u:object_r:vendor_sysfs_graphics:s0
 /sys/class/backlight/panel0-backlight/brightness_clone                   u:object_r:vendor_sysfs_graphics:s0
@@ -78,6 +79,7 @@
 /data/vendor/gf_data(/.*)?                                  u:object_r:fingerprint_vendor_data_file:s0
 /mnt/vendor/persist/fpc(/.*)?                               u:object_r:fingerprint_vendor_data_file:s0
 /mnt/vendor/persist/goodix(/.*)?                            u:object_r:fingerprint_vendor_data_file:s0
+/sys/devices/virtual/touch/touch_dev/fod_press_status               u:object_r:vendor_sysfs_udfps:s0
 
 # FPS Info
 /sys/class/drm/sde-crtc-0/measured_fps                               u:object_r:vendor_sysfs_graphics:s0
@@ -127,6 +129,7 @@
 /mnt/vendor/persist/subsys(/.*)?                                        u:object_r:persist_subsys_file:s0
 
 # Power
+/sys/touchpanel/double_tap						       u:object_r:vendor_sysfs_double_tap:s0
 /vendor/bin/hw/android\.hardware\.power-service\.xiaomi-sm8250-libperfmgr      u:object_r:hal_power_default_exec:s0
 
 # Sensors
