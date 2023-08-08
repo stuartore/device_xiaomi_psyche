@@ -73,16 +73,16 @@
 
 # Fingerprint - data
 /data/gf_data(/.*)?                                                     u:object_r:fingerprint_data_file:s0
-/data/vendor/goodix(/.*)?                                               u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/fpc(/.*)?                                                  u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/fpdump(/.*)?                                               u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/gf_data(/.*)?                                  u:object_r:fingerprint_vendor_data_file:s0
-/mnt/vendor/persist/fpc(/.*)?                               u:object_r:fingerprint_vendor_data_file:s0
-/mnt/vendor/persist/goodix(/.*)?                            u:object_r:fingerprint_vendor_data_file:s0
-/sys/devices/virtual/touch/touch_dev/fod_press_status               u:object_r:vendor_sysfs_udfps:s0
+/data/vendor/goodix(/.*)?                                               u:object_r:fingerprint_data_file:s0
+/data/vendor/fpc(/.*)?                                                  u:object_r:fingerprint_data_file:s0
+/data/vendor/fpdump(/.*)?                                               u:object_r:fingerprint_data_file:s0
+/data/vendor/gf_data(/.*)?                                              u:object_r:fingerprint_data_file:s0
+/mnt/vendor/persist/fpc(/.*)?                                           u:object_r:fingerprint_data_file:s0
+/mnt/vendor/persist/goodix(/.*)?                                        u:object_r:fingerprint_data_file:s0
+/sys/devices/virtual/touch/touch_dev/fod_press_status                   u:object_r:vendor_sysfs_udfps:s0
 
 # FPS Info
-/sys/class/drm/sde-crtc-0/measured_fps                               u:object_r:vendor_sysfs_graphics:s0
+/sys/class/drm/sde-crtc-0/measured_fps                                  u:object_r:vendor_sysfs_graphics:s0
 
 # Hexagon DSP-side executable needed for Halide operation
 # This is labeled as public_adsprpcd_file as it needs to be read by apps
@@ -109,28 +109,28 @@
 /vendor/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.xiaomi_kona       u:object_r:hal_lineage_livedisplay_qti_exec:s0
 
 # Mlipay
-/vendor/bin/mlipayd@1\.1                                                u:object_r:hal_mlipay_default_exec:s0
+/vendor/bin/mlipayd@1\.1                                                    u:object_r:hal_mlipay_default_exec:s0
 
 # Dtool
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.dtool@1\.0-service                  u:object_r:vendor_dtool_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.dtool@1\.0-service                 u:object_r:vendor_dtool_exec:s0
 
 # Micharge
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.micharge@1\.0-service               u:object_r:hal_micharge_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.micharge@1\.0-service              u:object_r:hal_micharge_default_exec:s0
 
 # MiSys
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@1\.0-service                                             u:object_r:hal_misys_default_exec:s0
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@2\.0-service                                             u:object_r:hal_misys_default_exec:s0
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@3\.0-service                                             u:object_r:hal_misys_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@1\.0-service                 u:object_r:hal_misys_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@2\.0-service                 u:object_r:hal_misys_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys@3\.0-service                 u:object_r:hal_misys_default_exec:s0
 
 # NFC
-/vendor/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service                u:object_r:hal_nfc_default_exec:s0
+/vendor/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service                    u:object_r:hal_nfc_default_exec:s0
 
 # Persist subsystem
-/mnt/vendor/persist/subsys(/.*)?                                        u:object_r:persist_subsys_file:s0
+/mnt/vendor/persist/subsys(/.*)?                                            u:object_r:persist_subsys_file:s0
 
 # Power
-/sys/touchpanel/double_tap						       u:object_r:vendor_sysfs_double_tap:s0
-/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-sm8250-libperfmgr      u:object_r:hal_power_default_exec:s0
+/sys/touchpanel/double_tap						    u:object_r:vendor_sysfs_double_tap:s0
+/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-sm8250-libperfmgr   u:object_r:hal_power_default_exec:s0
 
 # Sensors
 /dev/akm09970                                                                                                                   u:object_r:hall_device:s0
@@ -140,35 +140,35 @@
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.citsensorservice@1\.1-service                                  u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
 
 # SSR
-/sys/devices(/platform)?/soc/[a-z0-9\.:]+,[a-z0-9\-\_]+/subsys[0-9]+/name         u:object_r:vendor_sysfs_ssr:s0
+/sys/devices(/platform)?/soc/[a-z0-9\.:]+,[a-z0-9\-\_]+/subsys[0-9]+/name   u:object_r:vendor_sysfs_ssr:s0
 
 # Thermal
-/vendor/bin/mi_thermald                                                 u:object_r:mi_thermald_exec:s0
-/data/vendor/thermal(/.*)?                                              u:object_r:thermal_data_file:s0
+/vendor/bin/mi_thermald                                                     u:object_r:mi_thermald_exec:s0
+/data/vendor/thermal(/.*)?                                                  u:object_r:thermal_data_file:s0
 
 # Touch
-/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi              u:object_r:hal_lineage_touch_default_exec:s0
+/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi                  u:object_r:hal_lineage_touch_default_exec:s0
 
 # Touch Feature
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.touchfeature@1\.0-service                              u:object_r:hal_touchfeature_xiaomi_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.touchfeature@1\.0-service          u:object_r:hal_touchfeature_xiaomi_default_exec:s0
 
 # Xiaomi Touch
-/dev/xiaomi-touch                                                       u:object_r:vendor_touchfeature_device:s0
-/sys/devices/virtual/touch/touch_dev/palm_sensor            u:object_r:vendor_sysfs_tp_virtual_prox:s0
+/dev/xiaomi-touch                                                           u:object_r:vendor_touchfeature_device:s0
+/sys/devices/virtual/touch/touch_dev/palm_sensor                            u:object_r:vendor_sysfs_tp_virtual_prox:s0
 
 # USB
-/vendor/bin/init\.mi\.usb\.sh                                           u:object_r:vendor_qti_init_shell_exec:s0
+/vendor/bin/init\.mi\.usb\.sh                                               u:object_r:vendor_qti_init_shell_exec:s0
 
 # Vibrator
-/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_kona    u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_kona        u:object_r:hal_vibrator_default_exec:s0
 
 # Vibrator Permissions
-/sys/class/leds/vibrator_aw8697(/.*)?                                                   u:object_r:sysfs_leds:s0
-/sys/class/leds/vibrator(/.*)?                                                          u:object_r:sysfs_leds:s0
+/sys/class/leds/vibrator_aw8697(/.*)?                                       u:object_r:sysfs_leds:s0
+/sys/class/leds/vibrator(/.*)?                                              u:object_r:sysfs_leds:s0
 
 # WiFi
-/vendor/bin/nv_mac                                                      u:object_r:vendor_wcnss_service_exec:s0
-/data/vendor/mac_addr(/.*)?                                             u:object_r:vendor_wifi_vendor_data_file:s0
+/vendor/bin/nv_mac                                                          u:object_r:vendor_wcnss_service_exec:s0
+/data/vendor/mac_addr(/.*)?                                                 u:object_r:vendor_wifi_vendor_data_file:s0
 
 # Label read_ahead_kb in /data partition
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/read_ahead_kb u:object_r:vendor_sysfs_scsi_host:s0
@@ -177,4 +177,4 @@
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/discard_max_bytes u:object_r:vendor_sysfs_scsi_host:s0
 
 # SDX55M tombstones
-/data/vendor/tombstones/SDX55M(/.*)?           u:object_r:mdm_tombstone_data_file:s0
+/data/vendor/tombstones/SDX55M(/.*)?                                        u:object_r:mdm_tombstone_data_file:s0
