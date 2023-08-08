@@ -124,7 +124,7 @@
     <string name="dirac_preset_country">乡村</string>
     <string name="dirac_preset_dance">舞曲</string>
     <string name="dirac_preset_metal">金属</string>
-    <string name="dirac_preset_bass_booster">Bass Booster</string>
+    <string name="dirac_preset_bass_booster">重低音</string>
 
     <string name="dirac_hifi_enable_title"> 启用Hi-fi</string>
     <string name="dirac_hifi_title">Hi-Fi</string>
