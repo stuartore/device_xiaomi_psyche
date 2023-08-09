@@ -62,12 +62,6 @@
     <string name="dt2w_enable_title">双击亮屏</string>
     <string name="dt2w_enable_summary">双击锁屏界面以点亮屏幕</string>
 
-    <!-- Dirac settings -->
-    <string name="dirac_title">使用米音提升音质</string>
-    <string name="dirac_summary">米音</string>
-    <string name="dirac_headset_title">耳机类型设置</string>
-    <string name="dirac_preset_title">请选择预设效果</string>
-
     <!-- Dirac settings: Headset types -->
     <string name="dirac_headset_earbuds">灵动耳塞式</string>
     <string name="dirac_headset_in_ear_2013">灵悦入耳式</string>
@@ -94,7 +88,7 @@
     <string name="dirac_headset_bluetooth_linefree">小米蓝牙耳机</string>
     <string name="dirac_headset_redmi_earphones">红米耳机</string>
     <string name="dirac_enable">使用米音增强器</string> 
-    <string name="dirac_title">Dirac音效增强器</string>
+    <string name="dirac_title">使用米音提升音质</string>
     <string name="dirac_summary">配置音效预设、耳机类型等</string>
     <string name="dirac_headset_title">耳机类型</string>
     <string name="dirac_preset_title">音效预设</string>
