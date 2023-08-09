@@ -68,6 +68,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DozeUtils.checkDozeService(context);
         ThermalUtils.startService(context);
         RefreshUtils.startService(context);
+        FileUtils.enableService(context);
 
        //Micro-Service to restore sata of dt2w on reboot
        SharedPreferences prefs = context.getSharedPreferences(SHAREDD2TW, Context.MODE_PRIVATE);
