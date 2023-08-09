@@ -18,6 +18,17 @@
     <!-- Ambient settings -->
     <string name="ambient_enable">Use Ambient display</string>
 
+    <!-- HBM settings -->
+    <string name="hbm_fragment_title">High brightness mode</string>
+    <string name="hbm_fragment_summary">Settings for HBM</string>
+    <string name="hbm_mode_title">HBM</string>
+    <string name="hbm_mode_summary">Enable peak luminance</string>
+    <string name="auto_hbm_title">Automatic HBM</string>
+    <string name="auto_hbm_summary">Enable peak luminance based on sunlight</string>
+    <string name="auto_hbm_threshold_title"></string>
+    <string name="auto_hbm_threshold_summary">threshold (lux)</string>
+    <string name="hbm_mode_warning">Long time usage of High brightness mode may damage your display</string>
+
     <!-- Thermal Profiles -->
     <string name="thermal_title">Thermal Profiles</string>
     <string name="thermal_summary">Adjust per-app thermal profiles for optimum performance</string>
