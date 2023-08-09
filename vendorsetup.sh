@@ -23,6 +23,10 @@ TARGET_BUILD_APERTURE_CAMERA := true
 WITH_GMS := false
 TARGET_USE_GOOGLE_TELEPHONY := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# Vendor addons
+TARGET_USES_XIAOMI_PUSH := true
+TARGET_USES_HUAWEI_APPMARKET := true
 SPECS
 }
 
@@ -182,6 +186,9 @@ psyche_deps(){
 
 	# you can also use xiaomi_sm8250_devs kernel
 	#git_check_dir https://github.com/xiaomi-sm8250-devs/android_kernel_xiaomi_sm8250.git lineage-20 kernel/xiaomi/devs-sm8250
+
+	# vendor addons
+	git_check_dir https://github.com/stuartore/vendor_addon_xiaomi_apps thirteen vendor/adddon/xiaomi/apps
 
 	# clang
 	git_check_dir https://github.com/EmanuelCN/zyc_clang-14.git master prebuilts/clang/host/linux-x86/ZyC-clang
