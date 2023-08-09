@@ -188,7 +188,7 @@ psyche_deps(){
 	git_check_dir https://github.com/Tkiliay/android_kernel_xiaomi_sm8250.git ut kernel/xiaomi/sm8250
 
 	# vendor addons
-	git_check_dir https://github.com/stuartore/vendor_addon_xiaomi_apps thirteen vendor/adddon/xiaomi/apps
+	git_check_dir https://github.com/stuartore/vendor_addons_xiaomi_apps.git thirteen vendor/addons/xiaomi/apps
 
 	# clang
 	git_check_dir https://github.com/EmanuelCN/zyc_clang-14.git master prebuilts/clang/host/linux-x86/ZyC-clang
