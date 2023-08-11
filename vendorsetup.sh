@@ -247,7 +247,7 @@ psyche_rom_setup(){
 	if [[ ! $(grep 'revision="android-13' .repo/manifests/default.xml) ]];then echo -e "\033[1;33m=>\033[0m SKIP - source code is \033[1;33mnot Android 13\033[0m";exit;fi
 
 	cd device/xiaomi/psyche
-	dt_branch="$(git branch | sed 's/.*thirteen/thirteen/g' | sed 's/[[:space:]]//g')"
+	dt_branch="$(git branch | grep '*'| sed 's/.*thirteen/thirteen/g' | sed 's/[[:space:]]//g')"
 	vendor_branch='thirteen'
 	cd ../../..
 
