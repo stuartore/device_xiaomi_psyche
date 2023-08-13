@@ -18,6 +18,17 @@
     <!-- Ambient settings -->
     <string name="ambient_enable">使用环境显示</string>
 
+    <!-- HBM settings -->
+    <string name="hbm_fragment_title">高亮度模式</string>
+    <string name="hbm_fragment_summary">HBM设置</string>
+    <string name="hbm_mode_title">HBM</string>
+    <string name="hbm_mode_summary">启用峰值亮度</string>
+    <string name="auto_hbm_title">自动HBM</string>
+    <string name="auto_hbm_summary">根据阳光启用峰值</string>
+    <string name="auto_hbm_threshold_title"></string>
+    <string name="auto_hbm_threshold_summary">阈值 (lux)</string>
+    <string name="hbm_mode_warning">长时间使用高亮度模式可能会损坏您的显示屏</string>
+
     <!-- Thermal Profiles -->
     <string name="thermal_title">温控配置</string>
     <string name="thermal_summary">调整每个应用的热管理配置以获得最佳性能</string>
@@ -94,19 +105,21 @@
     <string name="dirac_preset_title">音效预设</string>
 
     <!-- Dirac settings: Equalizer presets -->
-    <string name="dirac_preset_live">Live</string>
-    <string name="dirac_preset_balanced">Balanced</string>
-    <string name="dirac_preset_bass_reduction">Bass Reduction</string>
-    <string name="dirac_preset_treble_reduction">Treble Reduction</string>
-    <string name="dirac_preset_soft_bass">Soft Bass</string>
-    <string name="dirac_preset_soft_treble">Soft Treble</string>
+    <string name="dirac_preset_live">现场</string>
+    <string name="dirac_preset_balanced">平衡</string>
+    <string name="dirac_preset_bass_reduction">低音减少</string>
+    <string name="dirac_preset_treble_reduction">高音减少</string>
+    <string name="dirac_preset_soft_bass">柔和低音</string>
+    <string name="dirac_preset_soft_treble">柔和高音</string>
 
     <!-- Scene Selection -->
-    <string name="music_headset_scenario_select">Select scene</string>
-    <string name="music_headset_scenario_intelligent">Smart</string>
-    <string name="music_headset_scenario_music">Music</string>
-    <string name="music_headset_scenario_video">Video</string>
-    <string name="music_headset_scenario_vocal">Voice</string>
+    <string name="music_headset_scenario_select">选择场景</string>
+    <string name="music_headset_scenario_intelligent">智能</string>
+    <string name="music_headset_scenario_music">音乐</string>
+    <string name="music_headset_scenario_video">视频</string>
+    <string name="music_headset_scenario_vocal">语音</string>
+
+     <!-- Dirac settings: equalizer presets -->
     <string name="dirac_preset_default">无</string>
     <string name="dirac_preset_rock">摇滚</string>
     <string name="dirac_preset_jazz">爵士</string>
