@@ -152,10 +152,6 @@ dt_bringup(){
 			"evolution")
                                 aosp_specs $dt_new_main_mk
                                 sed -i 's/ro.com.android.dataroaming=true//g' vendor.prop
-                                sed -i 's/org.lineageos.sensor.udfps/org.evolution.sensor.udfps/g' overlay/frameworks/base/core/res/res/values/config.xml
-                                cd ../../../hardware/xiaomi/sensors
-                                sed -i 's/org.lineageos.sensor.udfps/org.evolution.sensor.udfps/g' *.cpp
-                                cd ../../../device/xiaomi/psyche
                                 ;;
 			*)
 				aosp_specs $dt_new_main_mk
