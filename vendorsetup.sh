@@ -89,6 +89,7 @@ SPECS
 
 aosp_specs(){
 	cat>>$1<<SPECS
+WITH_GAPPS := true
 TARGET_USES_MINI_GAPPS := true
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 SPECS
