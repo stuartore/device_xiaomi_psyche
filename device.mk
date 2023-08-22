@@ -309,7 +309,13 @@ PRODUCT_PACKAGES += \
 
 # Advanced_sf_offsets configuration 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/advanced_sf_offsets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/advanced_sf_offsets.xml
+    $(LOCAL_PATH)/configs/advanced_sf_offsets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/advanced_sf_offsets.xml \
+    $(LOCAL_PATH)/configs/display/display_id_19260527152667265.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_19260527152667265.xml \
+    $(LOCAL_PATH)/configs/display/display_id_4630946545580055169.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946545580055169.xml
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.display.paneltype=2 \
+    ro.vendor.display.sensortype=2
 
 # DRM
 PRODUCT_PACKAGES += \
