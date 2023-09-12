@@ -521,7 +521,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     PsycheFrameworks \
     PsycheSystemUI \
-    SystemUIOverlayPsyche
+    SystemUIOverlayPsyche \
+    SettingsProviderM2112123AG
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
