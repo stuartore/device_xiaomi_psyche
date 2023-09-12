@@ -1,20 +1,26 @@
 [
- {
-   "repository"  : "device_xiaomi_psyche",
-   "target_path" : "device/xiaomi/psyche",
-   "remote"      : "pixel-devices",
-   "branch"      : "thirteen"
- },
- {
-   "remote": "github",
-   "repository": "xiaomi-sm8250-devs/android_kernel_xiaomi_sm8250",
-   "target_path": "kernel/xiaomi/sm8250",
-   "branch"      : "lineage-20"
- },
- {
-   "repository"  : "stuartore/vendor_xiaomi_psyche",
-   "target_path" : "vendor/xiaomi/psyche",
-   "remote"      : "gitlab",
-   "branch"      : "thirteen"
- }
+  {
+    "repository"  : "device_xiaomi_psyche",
+    "target_path" : "device/xiaomi/psyche",
+    "remote"      : "pixel-devices",
+    "branch"      : "thirteen"
+  },
+  {
+    "remote": "github",
+    "repository": "xiaomi-sm8250-devs/android_kernel_xiaomi_sm8250",
+    "target_path": "kernel/xiaomi/sm8250",
+    "branch"      : "lineage-20"
+  },
+  {
+    "repository"  : "lamjiidii1/android_vendor_xiaomi_psyche",
+    "target_path" : "vendor/xiaomi/psyche",
+    "remote"      : "gitlab",
+    "branch"      : "thirteen"
+  },
+  {
+    "repository"  : "lamjiidii1/android_hardware_xiaomi",
+    "target_path" : "hardware/xiaomi/psyche",
+    "remote"      : "gitlab",
+    "branch"      : "thirteen"
+  }
 ]
