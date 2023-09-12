@@ -1,7 +1,7 @@
 #!/bin/bash
 # This file is generated for Xiaomi 12X (psyche)
 
-dt_bringup_complished=0
+dt_bringup_complished=1
 
 # ROM specs
 rising_specs(){
@@ -27,8 +27,8 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 # Vendor addons
 TARGET_ADD_XIAOMI_PUSH := true
 TARGET_ADD_HUAWEI_APPMARKET := false
-TARGET_ADD_MOTO_SUITES := true
-TARGET_ADD_VIA_BROWSER := true
+#TARGET_ADD_MOTO_SUITES := true
+#TARGET_ADD_VIA_BROWSER := true
 SPECS
 }
 
@@ -176,7 +176,7 @@ git_check_dir(){
 psyche_deps(){
 	# use git_check_dir to setup dependencies
 
-	git_check_dir https://github.com/xiaomi-mars-devs/android_hardware_xiaomi lineage-20 hardware/xiaomi
+	git_check_dir https://github.com/LineageOS/android_hardware_xiaomi lineage-20 hardware/xiaomi
 
 	git_check_dir https://github.com/stuartore/device_xiaomi_psyche $1 device/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/android_vendor_xiaomi_psyche $2 vendor/xiaomi/psyche
