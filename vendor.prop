@@ -112,7 +112,7 @@ vendor.voice.path.for.pcm.voip=true
 
 # Audio config - vendor
 persist.vendor.audio.delta.refresh=true
-persist.vendor.audio.misound.disable=true
+#persist.vendor.audio.misound.disable=true
 
 ro.audio.monitorRotation=true
 ro.vendor.audio.afe.record=true
