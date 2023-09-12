@@ -32,7 +32,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
         android:persistent="true"
-        android:theme="@style/Theme.SubSettingsBase"
+        android:theme="@style/Theme.SubSettingsBase_v31"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
 
@@ -47,7 +47,7 @@
             android:name=".display.DoubleTapSettingsActivity"
             android:label="@string/dt2w_enable_title"
             android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase">
+            android:theme="@style/Theme.SubSettingsBase_v31">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
