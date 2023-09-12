@@ -1,3 +1,7 @@
+type vendor_sysfs_double_tap, sysfs_type, fs_type;
+
+binder_call(hal_power_default, hal_graphics_composer_default);
+
 # Allow hal_power_default to write to dt2w nodes
 allow hal_power_default input_device:dir r_dir_perms;
 allow hal_power_default input_device:chr_file rw_file_perms;
@@ -8,7 +12,8 @@ allow hal_power_default {
   vendor_sysfs_devfreq
   sysfs_msm_subsys
   sysfs_touchpanel
-}:dir search;
+  sysfs_fs_f2fs
+}:dir r_dir_perms;
 
 allow hal_power_default {
   cgroup
@@ -20,12 +25,15 @@ allow hal_power_default {
   sysfs_msm_subsys
   vendor_sysfs_scsi_host 
   sysfs_touchpanel
+  sysfs_fs_f2fs
 }:{
   file
   lnk_file
 } rw_file_perms;
 
 allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
+allow hal_power_default sysfs_touchpanel:chr_file { ioctl open read write };
+allow hal_power_default_exec sysfs_touchpanel:chr_file { ioctl open read write };
 
 # Rule for hal_power_default to access graphics composer process
 unix_socket_connect(hal_power_default, vendor_pps, hal_graphics_composer_default);
@@ -33,5 +41,9 @@ unix_socket_connect(hal_power_default, vendor_pps, hal_graphics_composer_default
 # To get/set powerhal state property
 set_prop(hal_power_default, vendor_power_prop)
 
-# Allow Power hal to read files in sysfs_touchpanel
-r_dir_file(hal_power_default, sysfs_touchpanel)
+# Touch Feature
+type vendor_touchfeature_device, dev_type;
+
+allow hal_power_default vendor_sysfs_double_tap:file rw_file_perms;
+allow hal_power_default vendor_touchfeature_device:chr_file rw_file_perms;
+allow hal_power_default self:capability { sys_admin };

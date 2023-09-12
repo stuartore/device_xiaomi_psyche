@@ -6,6 +6,7 @@ r_dir_file(hal_camera_default, vendor_sysfs_kgsl)
 
 # Allow hal_camera_default to read to mnt/vendor/persist/camera
 r_dir_file(hal_camera_default, camera_persist_file)
+r_dir_file(hal_camera_default, mnt_vendor_file)
 r_dir_file(hal_camera_default, vendor_persist_sensors_file)
 
 allow hal_camera_default remosaic_daemon_service:service_manager find;
@@ -19,15 +20,3 @@ allow hal_camera_default proc_stat:file { open };
 
 allow hal_camera_default public_adsprpcd_file:file r_file_perms;
 allow hal_camera_default vendor_xdsp_device:chr_file r_file_perms;
-
-# Allow hal_camera_default to read vendor_persist_camera_file
-r_dir_file(hal_camera_default, vendor_persist_camera_file)
-
-# Allow camera HAL to write vendor_persist_camera_file
-allow hal_camera_default vendor_persist_camera_file:file w_file_perms;
-
-# Allow hal_camera_default to read /mnt/vendor/ for calibration persist file
-r_dir_file(hal_camera_default, mnt_vendor_file)
-
-# Allow camera HAL to read NPU device
-allow hal_camera_default vendor_npu_device:chr_file r_file_perms;

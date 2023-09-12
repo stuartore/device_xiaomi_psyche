@@ -1,11 +1,8 @@
 type hal_micharge_hwservice, hwservice_manager_type;
 type hal_mlipay_hwservice, hwservice_manager_type;
 
-# Fingerprint
-type vendor_hal_xiaomi_fingerprint_hwservice, hwservice_manager_type;
-
-# TouchFeature
-type hal_touchfeature_hwservice, hwservice_manager_type;
+# Touch Feature
+type hal_touchfeature_xiaomi_hwservice, hwservice_manager_type;
 
 # motor
 type hal_motor_hwservice, hwservice_manager_type;

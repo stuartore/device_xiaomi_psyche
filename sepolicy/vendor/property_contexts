@@ -2,6 +2,9 @@
 audio.soundtrigger.debug.urser_id               u:object_r:vendor_audio_prop:s0
 audio_hal.in_period_size                        u:object_r:vendor_audio_prop:s0
 
+# Bluetooth
+persist.vendor.bt.                              u:object_r:vendor_bluetooth_prop:s0
+
 # Camera
 camera.                                         u:object_r:vendor_camera_prop:s0
 persist.camera.                                 u:object_r:vendor_camera_prop:s0
@@ -14,6 +17,38 @@ ro.vendor.camera.req.fmq.size                   u:object_r:vendor_camera_prop:s0
 ro.camera.res.fmq.size                          u:object_r:vendor_camera_prop:s0
 ro.camera.req.fmq.size                          u:object_r:vendor_camera_prop:s0
 
+# Displayfeature
+ro.vendor.bcbc.enable                          u:object_r:vendor_displayfeature_prop:s0
+init.svc.vendor.displayfeature-hal-1-0         u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.eyecare.threshold                    u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.eyecare.level                        u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.hist.threshold                       u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.histogram.enable                     u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.whitepoint_calibration_enable        u:object_r:vendor_displayfeature_prop:s0
+vendor.displayfeature.entry.enable             u:object_r:vendor_displayfeature_prop:s0
+vendor.hbm.enable                              u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.df.extcolor.proc                u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.max.brightness                  u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.xiaomi.bl.notify                     u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.xiaomi.bl.poll                       u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.df.color.temp                   u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.dc_backlight.enable             u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.fod.modified.dc_status          u:object_r:vendor_displayfeature_prop:s0
+ro.boot.oled_panel_id                          u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.fps.switch.default                   u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.dfps.level                      u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.smart_dfps.enable                    u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.power.dfps.level                u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.video.dfps.level                u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.video.dfps                      u:object_r:vendor_displayfeature_prop:s0
+vendor.displayfeature.thermal.dfps.level       u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.soft_backlight.enable                u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.sre.enable                           u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.fod.110nit.lux.level                 u:object_r:vendor_displayfeature_prop:s0
+
+# Fastcharge HAL
+persist.vendor.sec.fastchg_enabled              u:object_r:vendor_fastcharge_prop:s0
+
 # Fingerprint
 gf.debug.                                       u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.fpc.                             u:object_r:vendor_fingerprint_prop:s0
@@ -22,7 +57,7 @@ persist.sys.fp.                                 u:object_r:vendor_fingerprint_pr
 ro.hardware.fp                                  u:object_r:vendor_fingerprint_prop:s0
 vendor.fps_hal.                                 u:object_r:vendor_fingerprint_prop:s0
 ro.boot.fpsensor                                u:object_r:vendor_fingerprint_prop:s0
-ro.hardware.fp.                                 u:object_r:vendor_fingerprint_prop:s0
+vendor.dtool.                               u:object_r:vendor_fingerprint_prop:s0
 
 # Global
 ro.boot.factorybuild                            u:object_r:vendor_public_vendor_default_prop:s0
@@ -35,6 +70,10 @@ ro.ril.miui.imei                                u:object_r:vendor_deviceid_prop:
 ro.ril.oem.imei                                 u:object_r:vendor_deviceid_prop:s0
 ro.ril.oem.meid                                 u:object_r:vendor_deviceid_prop:s0
 
+# Serial Number
+ro.vendor.oem.sno                               u:object_r:vendor_sno_prop:s0
+ro.vendor.oem.psno                              u:object_r:vendor_sno_prop:s0
+
 # Power
 vendor.powerhal.state                           u:object_r:vendor_power_prop:s0
 vendor.powerhal.audio                           u:object_r:vendor_power_prop:s0
@@ -42,11 +81,19 @@ vendor.powerhal.lpm                             u:object_r:vendor_power_prop:s0
 vendor.powerhal.init                            u:object_r:vendor_power_prop:s0
 vendor.powerhal.rendering                       u:object_r:vendor_power_prop:s0
 
+# Radio
+ro.vendor.ril.svlte1x                           u:object_r:vendor_radio_prop:s0
+ro.vendor.ril.svdo                              u:object_r:vendor_radio_prop:s0
+
 # Mlipay
 persist.vendor.sys.pay                          u:object_r:vendor_tee_listener_prop:s0
 
+# Motor
+persist.vendor.motor.                           u:object_r:vendor_motor_prop:s0
+
 # RIL
 ro.vendor.ril                                   u:object_r:vendor_public_vendor_default_prop:s0
+vendor.ril.                                     u:object_r:vendor_radio_prop:s0
 
 # Sensor
 persist.sensor.                                 u:object_r:vendor_sensors_prop:s0
@@ -60,7 +107,6 @@ sys.thermal.                                    u:object_r:vendor_thermal_normal
 vendor.sys.thermal.                             u:object_r:vendor_thermal_normal_prop:s0
 persist.sys.thermal.config                      u:object_r:vendor_thermal_normal_prop:s0
 
-persist.vendor.optimiz_soc                      u:object_r:vendor_optimiz_soc_prop:s0
-
-# TouchFeature
+# Touchfeature
 ro.vendor.touchfeature.type                 u:object_r:vendor_touchfeature_prop:s0
+

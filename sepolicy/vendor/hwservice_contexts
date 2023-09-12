@@ -1,12 +1,15 @@
-# Fingerprint HIDL services
-com.fingerprints.extension::IFingerprintEngineering                                  u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintAuthenticator                                u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintNavigation                                   u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintSensorTest                                   u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintCalibration                                  u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-com.fingerprints.extension::IFingerprintOptical                                      u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon              u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
-vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint                      u:object_r:vendor_hal_xiaomi_fingerprint_hwservice:s0
+# Fingerprint
+vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon              u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintEngineering                                  u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintAuthenticator                                u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintNavigation                                   u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintSensorTest                                   u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintCalibration                                  u:object_r:hal_fingerprint_hwservice:s0
+com.fingerprints.extension::IFingerprintOptical                                      u:object_r:hal_fingerprint_hwservice:s0
+vendor.xiaomi.hardware.dtool::IDtool                                                 u:object_r:hal_fingerprint_hwservice:s0
+vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon              u:object_r:hal_fingerprint_hwservice:s0
+vendor.xiaomi.hardware.fx.tunnel::IMiFxTunnel                                        u:object_r:hal_fingerprint_hwservice:s0
+vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint                      u:object_r:hal_fingerprint_hwservice:s0
 
 # Mlipay
 vendor.xiaomi.hardware.mlipay::IMlipayService                                        u:object_r:hal_mlipay_hwservice:s0
@@ -26,8 +29,8 @@ vendor.xiaomi.hardware.citsensorservice::ICitSensorService                      
 # Sensors Service
 android.frameworks.sensorservice::ISensorManager                                     u:object_r:fwk_sensor_hwservice:s0
 
-# TouchFeature
-vendor.xiaomi.hardware.touchfeature::ITouchFeature                                   u:object_r:hal_touchfeature_hwservice:s0
+# Touch Feature
+vendor.xiaomi.hardware.touchfeature::ITouchFeature                                   u:object_r:hal_touchfeature_xiaomi_hwservice:s0
 
 # Display Feature
 vendor.xiaomi.hardware.displayfeature::IDisplayFeature                               u:object_r:vendor_hal_displayfeature_xiaomi_hwservice:s0
