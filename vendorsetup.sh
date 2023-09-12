@@ -176,12 +176,12 @@ git_check_dir(){
 psyche_deps(){
 	# use git_check_dir to setup dependencies
 
-	git_check_dir https://github.com/LineageOS/android_hardware_xiaomi lineage-20 hardware/xiaomi
+	git_check_dir https://github.com/xiaomi-mars-devs/android_hardware_xiaomi lineage-20 hardware/xiaomi
 
-	git_check_dir https://github.com/stuartore/device_xiaomi_psyche $1 device/xiaomi/psyche
+	git_check_dir git@github.com:shine911/device_xiaomi_psyche.git $1 device/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/android_vendor_xiaomi_psyche $2 vendor/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/vendor_xiaomi_psyche-firmware thirteen vendor/xiaomi-firmware/psyche
-	git_check_dir https://github.com/VoidUI-Devices/kernel_xiaomi_sm8250 aosp-13 kernel/xiaomi/void-aosp-sm8250
+	git_check_dir git@github.com:shine911/redline_kernel_xiaomi_sm8250.git aosp-13 kernel/xiaomi/void-aosp-sm8250
 
 	# you can also use xiaomi_sm8250_devs kernel
 	#git_check_dir https://github.com/xiaomi-sm8250-devs/android_kernel_xiaomi_sm8250.git lineage-20 kernel/xiaomi/devs-sm8250
