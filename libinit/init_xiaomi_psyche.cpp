@@ -29,7 +29,7 @@ static const variant_info_t psyche_info = {
     .brand = "Xiaomi",
     .device = "psyche",
     .marketname = "Xiaomi 12X",
-    .model = "2112123AC",
+    .model = "2112123AG",
 
     .nfc = true,
 };
