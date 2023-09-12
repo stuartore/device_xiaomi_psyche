@@ -37,14 +37,14 @@ static const char* kFodUiPaths[] = {
         "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui",
         "/sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui",
 };
+
 namespace {
 
-
-template <typename T>
-static void set(const std::string& path, const T& value) {
-    std::ofstream file(path);
-    file << value;
-}
+    template <typename T>
+    static void set(const std::string& path, const T& value) {
+        std::ofstream file(path);
+        file << value;
+    }
 
 } // anonymous namespace
 
@@ -109,11 +109,9 @@ class XiaomiKonaUdfpsHandler : public UdfpsHandler {
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
         set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_ON);
     }
-
     void onFingerUp() {
         set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
     }
-
     void onAcquired(int32_t result, int32_t vendorCode) {
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
             set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
