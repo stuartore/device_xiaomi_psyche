@@ -175,6 +175,17 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml
 
 # Bluetooth
+TARGET_USE_AIDL_QTI_BT_AUDIO := true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.profile.bap.broadcast.assist.enabled=true \
+    bluetooth.profile.bap.broadcast.source.enabled=true \
+    bluetooth.profile.bap.unicast.client.enabled=true \
+    bluetooth.profile.vcp.controller.enabled=true \
+    bluetooth.profile.csip.set_coordinator.enabled=true \
+    bluetooth.profile.mcp.server.enabled=true \
+    bluetooth.profile.ccp.server.enabled=true
+
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1.vendor \
     vendor.qti.hardware.bluetooth_audio@2.1.vendor \
