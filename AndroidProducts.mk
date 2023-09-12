@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_psyche.mk
+    $(LOCAL_DIR)/superior_psyche.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_psyche-eng \
-    aosp_psyche-userdebug \
-    aosp_psyche-user
+    superior_psyche-eng \
+    superior_psyche-userdebug \
+    superior_psyche-user
