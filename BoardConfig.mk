@@ -134,7 +134,7 @@ BOARD_KERNEL_CMDLINE += \
     console=ttyMSM0,115200n8 \
     pcie_ports=compat \
     kpti=off
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
