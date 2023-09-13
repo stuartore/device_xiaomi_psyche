@@ -1,10 +1,5 @@
-Copyright (C) 2021 LineageOS
-## Twoline Build
-```
-git clone https://github.com/stuartore/aosp-setup.git && cd aosp-setup
+Copyright (C) 2023 LineageOS
 
-bash aosp.sh -k --auto_build
-```
 Device configuration for Xiaomi Mi 12X (psyche)
 =========================================
 
