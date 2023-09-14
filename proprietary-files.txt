@@ -148,6 +148,7 @@ system/lib64/liblhdc.so
 
 # Audio - MIUI
 vendor/bin/audioflacapp
+vendor/lib/libaudiocloudctrl.so
 vendor/lib/hw/audio.primary.kona.so
 vendor/lib/hw/sound_trigger.primary.kona.so
 vendor/lib/hw/vendor.qti.hardware.audiohalext@1.0-impl.so
@@ -871,6 +872,8 @@ system_ext/lib/libqdMetaData.system.so
 system_ext/lib64/libqdMetaData.system.so
 vendor/lib/libqdMetaData.so
 vendor/lib64/libqdMetaData.so
+vendor/lib/libgui_vendor.so
+vendor/lib64/libgui_vendor.so
 
 # Display-calibration - MIUI
 vendor/etc/qdcm_calib_data_xiaomi_42_02_0a_cmd_dsc_dsi_panel.xml
