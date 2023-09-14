@@ -532,7 +532,8 @@ PRODUCT_PACKAGES += \
     PsycheFrameworks \
     PsycheSystemUI \
     SystemUIOverlayPsyche \
-    SettingsProviderM2112123AG
+    SettingsProviderM2112123AG \
+    PsycheNfc
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
