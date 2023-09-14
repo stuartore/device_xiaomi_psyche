@@ -636,9 +636,7 @@ vendor/etc/init/init_qfp_daemon.rc
 vendor/etc/init/init.charge_logger.rc
 
 # Charger - MIUI
-vendor/bin/batteryd
 vendor/bin/batterysecret
-vendor/etc/init/init.batteryd.rc
 vendor/etc/init/init.batterysecret.rc
 vendor/lib/libbatterylistener.so
 
@@ -1268,7 +1266,6 @@ system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
 
 # Media configs
-odm/etc/media_profiles_V1_0.xml
 vendor/etc/media_codecs.xml
 vendor/etc/media_codecs_c2.xml
 vendor/etc/media_codecs_kona.xml
@@ -1277,7 +1274,6 @@ vendor/etc/media_codecs_performance_c2.xml
 vendor/etc/media_codecs_performance_kona.xml
 vendor/etc/media_codecs_performance_kona_vendor.xml
 vendor/etc/media_codecs_system_default.xml
-vendor/etc/media_codecs_vendor_audio.xml
 vendor/etc/media_profiles.xml
 vendor/etc/media_profiles_kona.xml
 vendor/etc/media_profiles_vendor.xml
@@ -1670,10 +1666,6 @@ vendor/lib64/libsubsystem_control.so
 # TFTP
 vendor/bin/tftp_server
 vendor/etc/init/vendor.qti.tftp.rc
-
-# TLOC
-vendor/bin/tloc_daemon
-vendor/etc/init/tloc_daemon.rc
 
 # Thermal (limits-hal)
 vendor/bin/hw/vendor.qti.hardware.limits@1.0-service
@@ -2248,11 +2240,9 @@ system/etc/permissions/vendor.xiaomi.hardware.misys.V3_0-permission.xml
 system/framework/vendor.xiaomi.hardware.misys-V1.0-java.jar
 system/framework/vendor.xiaomi.hardware.misys-V2.0-java.jar
 system/framework/vendor.xiaomi.hardware.misys.V3_0.jar
-system/lib/libmisys_jni.so
 system/lib/vendor.xiaomi.hardware.misys@1.0.so
 system/lib/vendor.xiaomi.hardware.misys@2.0.so
 system/lib/vendor.xiaomi.hardware.misys@3.0.so
-system/lib64/libmisys_jni.so
 system/lib64/vendor.xiaomi.hardware.misys@1.0.so
 system/lib64/vendor.xiaomi.hardware.misys@2.0.so
 system/lib64/vendor.xiaomi.hardware.misys@3.0.so
