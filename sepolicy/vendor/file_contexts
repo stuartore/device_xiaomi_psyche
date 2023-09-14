@@ -149,9 +149,6 @@
 # Thermal data
 /data/vendor/thermal(/.*)?                                                  u:object_r:thermal_data_file:s0
 
-# Label thermal_hbm_disabled sysfs
-/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/thermal_hbm_disabled u:object_r:vendor_sysfs_graphics:s0
-
 # Touch
 /vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi                  u:object_r:hal_lineage_touch_default_exec:s0
 
