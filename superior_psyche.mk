@@ -34,7 +34,7 @@ PRODUCT_MODEL := 2112123AG
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_CHARACTERISTICS := nosdcard
-BUILD_FINGERPRINT := Xiaomi/psyche/psyche:12/RKQ1.211001.001/V13.0.10.0.SLDCNXM:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/psyche_global/psyche:13/RKQ1.211001.001/V14.0.4.0.TLDMIXM:user/release-keys
 
 # Interit from SuperiorOS - AUTOADD
 
