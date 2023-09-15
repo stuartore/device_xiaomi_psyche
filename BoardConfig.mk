@@ -141,12 +141,10 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_OFFSET := 0x01000000
 KERNEL_LD := LD=ld.lld
-
 KERNEL_LLVM_SUPPORT := true
 
 # Kernel Config
-TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig vendor/xiaomi/sm8250-common.config
-TARGET_KERNEL_CONFIG += vendor/xiaomi/psyche.config
+KERNEL_DEFCONFIG := psyche_defconfig
 
 TARGET_KERNEL_SOURCE := kernel/xiaomi/void-aosp-sm8250
 
