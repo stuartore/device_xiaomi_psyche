@@ -22,14 +22,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.lineage.livedisplay</name>
-        <version>2.1</version>
-        <interface>
-	    <name>ISunlightEnhancement</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>android.hardware.drm</name>
         <version>1.0-4</version>
         <interface>
