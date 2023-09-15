@@ -1,2 +1,0 @@
-# Label IR device
-/dev/ir_spi                                    u:object_r:vendor_ir_spi_device:s0

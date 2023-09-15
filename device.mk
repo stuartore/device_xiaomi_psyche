@@ -148,25 +148,15 @@ PRODUCT_PACKAGES += \
    libalsautilsv2
 
 PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.audio.delta.refresh=true \
-    persist.vendor.audio.misound.disable=true \
     persist.vendor.audio.ring.filter.mask=0 \
-    ro.audio.monitorRotation=true \
+    ro.config.media_vol_steps=12 \
     ro.config.vc_call_vol_steps=11 \
     ro.vendor.audio.enhance.support=false \
-    ro.vendor.audio.gain.support=true \
-    ro.vendor.audio.karaok.support=true \
     ro.vendor.audio.ns.support=false \
-    ro.vendor.audio.scenario.support=true \
-    ro.vendor.audio.soundfx.type=mi \
-    ro.vendor.audio.soundfx.usb=true \
     ro.vendor.audio.support.sound.id=true \
-    ro.vendor.audio.us.proximity=true \
     ro.vendor.audio.us.type=mius \
     ro.vendor.audio.zoom.support=true \
-    ro.vendor.audio.zoom.type=1 \
-    vendor.audio.spkcal.copy.inhal=true \
-    vendor.audio.usb.disable.sidetone=true
+    ro.vendor.audio.zoom.type=1
 
 PRODUCT_ODM_PROPERTIES += \
     aaudio.mmap_policy=1
@@ -249,6 +239,48 @@ PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
 # Device-specific settings
 PRODUCT_PACKAGES += \
     XiaomiParts
+
+ifeq ($(TARGET_USES_MIUI_DOLBY),true)
+# Miui Dolby Engine Topic
+# Dolby Sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/dolby
+# Dolby Props
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.dolby.dax.version=DAX3_3.6.1.6_r1 \
+    ro.vendor.audio.dolby.dax.version=DAX3_3.6 \
+    ro.vendor.audio.dolby.dax.support=true \
+    ro.vendor.audio.dolby.surround.enable=true
+
+# Dolby Permissions
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/dolby/permissions,$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions)
+
+# MiSound with Dolby Environment (By Default - Disabled)
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.audio.misound.disable=true \
+    ro.vendor.audio.misound.bluetooth.enable=true
+
+# Dolby MediaCodecs Loading Support (Overwrites Vendor files)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/dolby/media/media_codecs_kona_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_kona_vendor.xml \
+    $(LOCAL_PATH)/dolby/media/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml
+
+# Dolby Config File
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/dolby/config/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml
+
+# Remove Packages for Dolby Support
+PRODUCT_PACKAGES += \
+    RemovePackagesDolby
+
+else
+# MiSound (Dirac Only)
+# MiSound without Dolby (By Default - Enabled)
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.audio.misound.disable=false \
+    ro.vendor.audio.misound.bluetooth.enable=true
+endif
+
 
 # Display
 PRODUCT_PACKAGES += \

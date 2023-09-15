@@ -1,5 +1,0 @@
-# Audio socket file
-type audio_socket, file_type;
-
-# Sound Device
-type sound_device, dev_type;

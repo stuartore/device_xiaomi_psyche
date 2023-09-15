@@ -1,0 +1,17 @@
+# For mount tracefs tracefs /sys/kernel/tracing
+allow init debugfs_tracing_debug:dir mounton;
+
+allow init same_process_hal_file:file execute;
+
+allow init proc_last_kmsg:file {
+  r_file_perms
+  setattr
+};
+
+allow init adsprpcd_file:file mounton;
+
+allow vendor_hvdcp sysfs:file {read open};
+# Allow init to set read_ahead_kb on /data partition
+allow init vendor_sysfs_scsi_host:file w_file_perms;
+# Allow Vendor_init set Radio Prop
+set_prop(vendor_init, vendor_radio_prop)

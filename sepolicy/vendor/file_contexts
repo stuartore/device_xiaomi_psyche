@@ -184,6 +184,3 @@
 
 # SDX55M tombstones
 /data/vendor/tombstones/SDX55M(/.*)?                                        u:object_r:mdm_tombstone_data_file:s0
-
-# SSD
-/dev/block/platform/msm_sdcc.1/by-name/ssd      u:object_r:ssd_device:s0
