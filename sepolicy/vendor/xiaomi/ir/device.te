@@ -1,2 +1,0 @@
-# IR device
-type vendor_ir_spi_device, dev_type;

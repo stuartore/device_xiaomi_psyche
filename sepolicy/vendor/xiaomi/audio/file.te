@@ -1,2 +1,0 @@
-# f0_value sysfs file
-type sysfs_f0_value, sysfs_type, fs_type;
