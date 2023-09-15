@@ -250,6 +250,10 @@ on boot
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
+    # UDFPS Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/udfps_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/udfps_pressed
+
 # msm specific files that need to be created on /data
 on post-fs-data
     rm /data/vendor/wifi/cnss_diag.conf
