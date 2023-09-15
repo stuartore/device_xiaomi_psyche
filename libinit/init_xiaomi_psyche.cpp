@@ -45,8 +45,4 @@ void vendor_load_properties() {
 
     // SafetyNet workaround
     property_override("ro.boot.verifiedbootstate", "green");
-
-    // sku properties
-    property_override("ro.boot.hardware.sku", "psyche");
-    property_override("ro.boot.product.hardware.sku", "psyche");
 }
