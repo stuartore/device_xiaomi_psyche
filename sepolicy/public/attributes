@@ -1,8 +1,1 @@
-hal_attribute_lineage(mlipay)
-hal_attribute_lineage(motor)
-hal_attribute_lineage(touchfeature)
-
-# Misys
-attribute hal_misys;
-attribute hal_misys_client;
-attribute hal_misys_server;
+hal_attribute_aospa(touchfeature)

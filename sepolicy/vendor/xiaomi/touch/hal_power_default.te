@@ -1,0 +1,5 @@
+# Allow Power hal to read files in sysfs_touchpanel
+r_dir_file(hal_power_default, sysfs_touchpanel)
+
+# Allow Power hal to write to sysfs_touchpanel
+allow hal_power_default sysfs_touchpanel:file w_file_perms;

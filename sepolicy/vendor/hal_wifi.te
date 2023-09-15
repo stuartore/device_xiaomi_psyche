@@ -1,2 +1,0 @@
-# allow hal_wifi_default sys_module capability
-allow hal_wifi_default self:capability sys_module;
