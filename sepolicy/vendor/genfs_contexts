@@ -30,6 +30,9 @@ genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/request_vreg           
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable          u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/vendor                 u:object_r:vendor_sysfs_fingerprint:s0
 
+# UDFPS Sensor
+genfscon sysfs /devices/platform/goodix_ts.0/udfps_pressed                      u:object_r:vendor_sysfs_sensors:s0
+
 # Dc Dimming
 genfscon sysfs /class/drm/card0-DSI-1/disp_param                                u:object_r:vendor_sysfs_graphics:s0
 
