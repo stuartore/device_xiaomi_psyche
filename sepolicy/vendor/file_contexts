@@ -80,7 +80,7 @@
 /mnt/vendor/persist/fpc(/.*)?                                           u:object_r:fingerprint_data_file:s0
 /mnt/vendor/persist/goodix(/.*)?                                        u:object_r:fingerprint_data_file:s0
 /sys/devices/virtual/touch/touch_dev/fod_press_status                   u:object_r:vendor_sysfs_udfps:s0
-/sys/devices/virtual/touch/tp_dev/fp_state                              u:object_r:vendor_sysfs_sensors:s0
+/sys/devices/virtual/touch/tp_dev/fp_state                              u:object_r:vendor_sysfs_udfps:s0
 
 # FPS Info
 /sys/class/drm/sde-crtc-0/measured_fps                                  u:object_r:vendor_sysfs_graphics:s0
@@ -155,9 +155,6 @@
 # Xiaomi Touch
 /dev/xiaomi-touch                                                           u:object_r:vendor_touchfeature_device:s0
 /sys/devices/virtual/touch/touch_dev/palm_sensor                            u:object_r:vendor_sysfs_tp_virtual_prox:s0
-
-# udfps state node
-/sys/devices/virtual/touch/tp_dev/fp_state                                  u:object_r:vendor_sysfs_udfps:s0
 
 # USB
 /vendor/bin/init\.mi\.usb\.sh                                               u:object_r:vendor_qti_init_shell_exec:s0
