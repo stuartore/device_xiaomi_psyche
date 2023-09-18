@@ -1,7 +1,7 @@
 # Audio
 aaudio.hw_burst_min_usec=2000
 aaudio.mmap_exclusive_policy=2
-aaudio.mmap_policy=2
+aaudio.mmap_policy=1
 audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=true
 persist.audio.button_jack.profile=volume
@@ -109,19 +109,14 @@ vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=2
 vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
-
-# Audio config - vendor
 persist.vendor.audio.delta.refresh=true
-#persist.vendor.audio.misound.disable=true
-
+persist.vendor.audio.misound.disable=true
 ro.audio.monitorRotation=true
-ro.vendor.audio.afe.record=true
-ro.vendor.audio.dump.mixer=true
-ro.vendor.audio.feature.fade=true
+ro.vendor.audio.enhance.support=false
 ro.vendor.audio.gain.support=true
 ro.vendor.audio.karaok.support=true
-ro.vendor.audio.multiroute=true
-ro.vendor.audio.shortvideo.index=80
+ro.vendor.audio.ns.support=false
+ro.vendor.audio.sfx.audiovisual=false
 ro.vendor.audio.soundtrigger.appdefine.cnn.level=35
 ro.vendor.audio.soundtrigger.appdefine.gmm.level=55
 ro.vendor.audio.soundtrigger.appdefine.gmm.user.level=65
@@ -140,8 +135,13 @@ ro.vendor.audio.soundtrigger.xatx.gmm.user.level=40
 ro.vendor.audio.soundtrigger.xatx.vop.level=-10
 ro.vendor.audio.spk.clean=true
 ro.vendor.audio.spk.stereo=true
-ro.vendor.audio.voice.volume.boost=none
-vendor.audio.lowpower=true
+ro.vendor.audio.us.type=mius
+ro.vendor.audio.zoom.support=true
+ro.vendor.audio.zoom.type=1
+
+# Audio Volume Steps (Media)
+ro.config.media_vol_steps=16
+
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
 bluetooth.hardware.power.operating_voltage_mv=3300
@@ -168,32 +168,20 @@ bluetooth.profile.ccp.server.enabled?=true
 bluetooth.profile.vcp.controller.enabled?=true
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
-persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.soc=hastings
 ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bluetooth.wipower=false
 vendor.qcom.bluetooth.soc=hastings
-vendor.hw.fm.init=0
 
 # Chipset
-ro.soc.manufacturer=Qualcomm
+ro.soc.manufacturer=QTI
 ro.soc.model=SM8250
 
 # Crypto
 ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts
-
-# Dex2oat
-pm.dexopt.first-boot=quicken
-pm.dexopt.bg-dexopt=everything
-pm.dexopt.boot=verify
-pm.dexopt.install=speed-profile
-dalvik.vm.image-dex2oat-filter=speed
-dalvik.vm.image-dex2oat-threads=8
-dalvik.vm.dex2oat-filter=speed
-dalvik.vm.dex2oat-threads=8
 
 # Display
 persist.sys.sf.color_mode=9
@@ -221,9 +209,8 @@ vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
 vendor.display.use_layer_ext=0
 vendor.display.use_smooth_motion=0
-
-# Display HDR10
-vendor.display.enable_hdr10_gpu_target=1
+ro.vendor.display.paneltype=2
+vendor.display.defer_fps_frame_count=2
 
 # Display Refresh Rate
 ro.surface_flinger.set_idle_timer_ms?=4000
@@ -231,23 +218,18 @@ ro.surface_flinger.set_touch_timer_ms?=4000
 ro.surface_flinger.set_display_power_timer_ms?=1000
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 vendor.display.defer_fps_frame_count?=2
-ro.vendor.display.touch.idle.enable=true
 
 # DRM
 drm.service.enabled=true
 
 # Fingerprint
 persist.vendor.qfp=false
-persist.vendor.sys.fp.vendor=goodix_fod
-ro.boot.fpsensor=goodix_fod
 
-# FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
 # GPS
-persist.backup.ntpServer=ntp.ntsc.ac.cn
+persist.backup.ntpServer=0.pool.ntp.org
 
 # Graphics
 debug.egl.hw=0
@@ -264,14 +246,14 @@ debug.sf.auto_latch_unsignaled=true
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
 persist.demo.hdmirotationlock=false
-persist.sys.sf.color_mode=9
-persist.sys.sf.color_saturation=1.0
-debug.sf.predict_hwc_composition_strategy=0
-debug.sf.disable_client_composition_cache=1
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
 vendor.gralloc.disable_ubwc=0
+
+# HVDCP
+persist.vendor.pps.disallowed=1
+persist.vendor.hvdcp_opti.disallowed=1
 
 # Keystore
 ro.hardware.keystore_desede=true
@@ -292,17 +274,6 @@ vendor.power.pasr.enabled=false
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
-# Qualcomm System Daemon
-persist.vendor.qcomsysd.enabled=1
-
-# Charge
-persist.vendor.fastchg_enabled=1
-persist.vendor.night.charge=true
-persist.vendor.accelerate.charge=true
-
-# Touchfeature
-ro.vendor.touchfeature.type=183
-
 # Radio
 persist.radio.NO_STAPA=1
 persist.radio.VT_HYBRID_ENABLE=1
@@ -316,7 +287,6 @@ persist.vendor.radio.cdma_cap=true
 persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.data_ltd_sys_ind=1
-persist.vendor.radio.add_power_save=1
 persist.vendor.radio.dynamic_sar=1
 persist.vendor.radio.enable_temp_dds=true
 persist.vendor.radio.enableadvancedscan=true
@@ -329,7 +299,11 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.com.android.dataroaming=true
-ro.telephony.default_network=33,22
+ro.telephony.default_network=33,33
+
+# Radio Perf
+# RIL Battery Saving off
+persist.vendor.radio.add_power_save=0
 
 # Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true
@@ -341,14 +315,11 @@ persist.vendor.sensors.sync_request=true
 # Shutdown
 sys.vendor.shutdown.waittime=500
 
-# Subsystem silent restart
-persist.vendor.ssr.restart_level=ALL_ENABLE
+# TouchFeature
+ro.vendor.touchfeature.type=183
 
 # Telephony
 telephony.active_modems.max_count=2
-
-# Thermal
-vendor.sys.thermal.data.path=/data/vendor/thermal/
 
 # USB
 vendor.usb.diag.func.name=diag
