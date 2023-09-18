@@ -343,3 +343,4 @@ zygote.critical_window.minute=10
 
 # Disable gralloc spam
 persist.log.tag.gralloc=S
+persist.log.tag.gralloc4=S
