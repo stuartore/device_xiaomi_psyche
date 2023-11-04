@@ -181,13 +181,16 @@ psyche_deps(){
 	git_check_dir https://github.com/stuartore/device_xiaomi_psyche $1 device/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/android_vendor_xiaomi_psyche $2 vendor/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/vendor_xiaomi_psyche-firmware thirteen vendor/xiaomi-firmware/psyche
-	git_check_dir https://github.com/VoidUI-Devices/kernel_xiaomi_sm8250 aosp-13 kernel/xiaomi/void-aosp-sm8250
+	git_check_dir https://github.com/AOSPA/android_kernel_xiaomi_sm8250 uvite kernel/xiaomi/aospa-sm8250
+
+	# VoidUI kernel
+	#git_check_dir https://github.com/VoidUI-Devices/kernel_xiaomi_sm8250 aosp-13 kernel/xiaomi/void-aosp-sm8250
 
 	# you can also use xiaomi_sm8250_devs kernel
 	#git_check_dir https://github.com/xiaomi-sm8250-devs/android_kernel_xiaomi_sm8250.git lineage-20 kernel/xiaomi/devs-sm8250
 
 	# vendor addons
-	git_check_dir https://github.com/stuartore/vendor_addons_xiaomi_apps.git thirteen vendor/addons/xiaomi/apps
+	#git_check_dir https://github.com/stuartore/vendor_addons_xiaomi_apps.git thirteen vendor/addons/xiaomi/apps
 
 	# clang
 	git_check_dir https://github.com/EmanuelCN/zyc_clang-14.git master prebuilts/clang/host/linux-x86/ZyC-clang
