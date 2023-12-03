@@ -20,15 +20,15 @@ TARGET_BUILD_GRAPHENEOS_CAMERA := false
 TARGET_BUILD_APERTURE_CAMERA := true
 
 # Gapps
-WITH_GMS := false
+WITH_GMS := true
 TARGET_USE_GOOGLE_TELEPHONY := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Vendor addons
-TARGET_ADD_MOTO_CALCULATOR := true
-TARGET_ADD_MOTO_CALENDAR := true
-TARGET_ADD_MOTO_PHOTO := true
-TARGET_ADD_VIA_BROWSER := true
+TARGET_ADD_MOTO_CALCULATOR := false
+TARGET_ADD_MOTO_CALENDAR := false
+TARGET_ADD_MOTO_PHOTO := false
+TARGET_ADD_VIA_BROWSER := false
 SPECS
 }
 
@@ -181,7 +181,7 @@ psyche_deps(){
 	git_check_dir https://github.com/stuartore/device_xiaomi_psyche $1 device/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/android_vendor_xiaomi_psyche $2 vendor/xiaomi/psyche
 	git_check_dir https://gitlab.com/stuartore/vendor_xiaomi_psyche-firmware thirteen vendor/xiaomi-firmware/psyche
-	git_check_dir https://github.com/VoidUI-Devices/kernel_xiaomi_sm8250 aosp-13 kernel/xiaomi/void-aosp-sm8250
+	git_check_dir https://github.com/Moonlight4004/kernel_xiaomi_sm8250 aosp-13 kernel/xiaomi/void-aosp-sm8250
 
 	# you can also use xiaomi_sm8250_devs kernel
 	#git_check_dir https://github.com/xiaomi-sm8250-devs/android_kernel_xiaomi_sm8250.git lineage-20 kernel/xiaomi/devs-sm8250
