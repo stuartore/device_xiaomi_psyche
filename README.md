@@ -28,12 +28,6 @@ Display |  	AMOLED, 68B colors, 120Hz, Dolby Vision, HDR10+, 1100 nits (peak)
 
 ![Xiaomi Mi 12X](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12x-1.jpg "Xiaomi Mi 12X")
 
-### Credit
-+ [VoidUI-Devices](https://github.com/VoidUI-devices)
-+ [Mesquita](https://github.com/mickaelmendes50)
-+ [Monlight4004](https://github.com/moonlight4004）
-+ [shine911](https://github.com/shine911)
-
 <details>
   <summary>
     Trouble when building ?
@@ -42,8 +36,39 @@ Display |  	AMOLED, 68B colors, 120Hz, Dolby Vision, HDR10+, 1100 nits (peak)
 <pre><code>
   name: "vendor_vibrator_hal"
 </code></pre>
+Found in <code>build/soong/Android.bp</code>
+<pre><code>
+soong_config_module_type {
+    name: "qti_vibrator_hal",
+    module_type: "cc_defaults",
+    config_namespace: "lineageQcomVars",
+    bool_variables: ["qti_vibrator_use_effect_stream"],
+    value_variables: ["qti_vibrator_effect_lib"],
+    properties: [
+        "cppflags",
+        "shared_libs",
+    ],
+}
+
+qti_vibrator_hal {
+    name: "qti_vibrator_hal_defaults",
+    soong_config_variables: {
+        qti_vibrator_use_effect_stream: {
+            cppflags: ["-DUSE_EFFECT_STREAM"],
+        },
+        qti_vibrator_effect_lib: {
+            shared_libs: ["%s"],
+        },
+    },
+}
+</code></pre>
 As you find it, copy and paste the hal as well as its defaults code paragraph in "{}" in the related file who occours error, in the most cases, Android.bp
 
 Re-run lunch to see whether error fixed. Once it compelete, you could use aosp-setup to autobuild.
 </details>
 
+### Credit
++ [VoidUI-Devices](https://github.com/VoidUI-devices)
++ [Mesquita](https://github.com/mickaelmendes50)
++ [Monlight4004](https://github.com/moonlight4004）
++ [shine911](https://github.com/shine911)
