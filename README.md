@@ -32,9 +32,9 @@ Display |  	AMOLED, 68B colors, 120Hz, Dolby Vision, HDR10+, 1100 nits (peak)
   <summary>
     Trouble when building ?
   </summary>
-  If you find one or more module loss, the most possible reason is that the ROM organization do not contain it. You could search it on it's related Github profile
+  If you find one or more modules loss, the most possible reason is that the ROM organization do not contain it. You could search it on it's related Github profile
 <pre><code>
-  name: "vendor_vibrator_hal"
+  name: "qti_vibrator_hal"
 </code></pre>
 Found in <code>build/soong/Android.bp</code>
 <pre><code>
@@ -65,6 +65,8 @@ qti_vibrator_hal {
 As you find it, copy and paste the hal as well as its defaults code paragraph in "{}" in the related file who occours error, in the most cases, Android.bp
 
 Re-run lunch to see whether error fixed. Once it compelete, you could use aosp-setup to autobuild.
+
+Other errors' solutions follow the same reguration. If it loses, then add it. On the opposite side, delete it or change it's name to avoid being duplicate.
 </details>
 
 ### Credit
