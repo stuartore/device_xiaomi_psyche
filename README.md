@@ -31,3 +31,19 @@ Display |  	AMOLED, 68B colors, 120Hz, Dolby Vision, HDR10+, 1100 nits (peak)
 ### Credit
 + [VoidUI-Devices](https://github.com/VoidUI-devices)
 + [Mesquita](https://github.com/mickaelmendes50)
++ [Monlight4004](https://github.com/moonlight4004）
++ [shine911](https://github.com/shine911)
+
+<details>
+  <summary>
+    Trouble when building ?
+  </summary>
+  If you find one or more module loss, the most possible reason is that the ROM organization do not contain it. You could search it on it's related Github profile
+<pre><code>
+  name: "vendor_vibrator_hal"
+</code></pre>
+As you find it, copy and paste the hal as well as its defaults code paragraph in "{}" in the related file who occours error, in the most cases, Android.bp
+
+Re-run lunch to see whether error fixed. Once it compelete, you could use aosp-setup to autobuild.
+</details>
+
