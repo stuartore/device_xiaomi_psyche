@@ -192,9 +192,6 @@ psyche_deps(){
 	# clang
 	git_check_dir https://github.com/EmanuelCN/zyc_clang-14.git master prebuilts/clang/host/linux-x86/ZyC-clang
 
-	# livedisplay
-	git_check_dir https://github.com/LineageOS/android_hardware_lineage_livedisplay.git lineage-20.0 hardware/lineage/livedisplay
-
 	# other
 	echo 'include $(call all-subdir-makefiles)' > vendor/xiaomi-firmware/Android.mk
 
@@ -220,8 +217,6 @@ com\.oplus\.os
 com\.oplus\.os\..*
 oplus\.content\.res
 oplus\.content\.res\..*
-vendor\.lineage\.livedisplay
-vendor\.lineage\.livedisplay\..*
 vendor\.lineage\.touch
 vendor\.lineage\.touch\..*
 ink\.kaleidoscope
