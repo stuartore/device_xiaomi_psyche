@@ -95,6 +95,39 @@ TARGET_SUPPORTS_GOOGLE_RECORDER := true
 SPECS
 }
 
+# rom patch
+rising_13_patch(){
+	if [[ $(basename $(pwd) | tr "[A-Z]" "[a-z]") != "risingtechoss" ]] || [[ ! $(grep 'revision="android-13' .repo/manifests/default.xml) ]];then return;fi
+
+	if [[ ! $(grep 'aosp-setup patch' build/soong/Android.bp) ]];then
+	cat>>build/soong/Android.bp<<ROMPATCH
+//aosp-setup patch android 13
+soong_config_module_type {
+    name: "qti_vibrator_hal",
+    module_type: "cc_defaults",
+    config_namespace: "lineageQcomVars",
+    bool_variables: ["qti_vibrator_use_effect_stream"],
+    value_variables: ["qti_vibrator_effect_lib"],
+    properties: [
+        "cppflags",
+        "shared_libs",
+    ],
+}
+qti_vibrator_hal {
+	name: "qti_vibrator_hal_defaults",
+	soong_config_variables: {
+		qti_vibrator_use_effect_stream: {
+			cppflags: ["-DUSE_EFFECT_STREAM"],
+		},
+		qti_vibrator_effect_lib: {
+			shared_libs: ["%s"],
+		},
+	},
+}
+ROMPATCH
+	fi
+}
+
 # device bringup for current ROM
 dt_bringup(){
 	# patch device tree string
@@ -156,6 +189,7 @@ dt_bringup(){
                                 ;;
 			*)
 				aosp_specs $dt_new_main_mk
+
 				;;
 		esac
 	fi
@@ -228,6 +262,10 @@ ink\.kaleidoscope\..*
 psyche_patch(){
 	psyche_kernel_patch
 	psyche_allowlist_patch
+
+	# rom patch
+	# patch when detect risingos 13
+	rising_13_patch
 }
 
 psyche_rom_setup(){
