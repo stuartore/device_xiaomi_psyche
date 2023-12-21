@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # This file is generated for Xiaomi 12X (psyche)
 
@@ -29,6 +30,7 @@ TARGET_ADD_MOTO_CALCULATOR := false
 TARGET_ADD_MOTO_CALENDAR := false
 TARGET_ADD_MOTO_PHOTO := false
 TARGET_ADD_VIA_BROWSER := false
+TARGET_ADD_NFC_CARDEMULATOR := true
 SPECS
 }
 
