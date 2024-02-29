@@ -238,8 +238,6 @@ on boot
     # FPS Info permissions
     chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
     chmod 0666 /sys/class/drm/sde-crtc-0/measured_fps
-    chown system system /sys/class/qcom-battery/input_suspend
-    chmod 774 /sys/class/qcom-battery/input_suspend
 on property:persist.vendor.sys.fp.fod.large_field=1
     write sys/bus/i2c/devices/3-0049/fod_area 1
 

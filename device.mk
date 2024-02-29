@@ -112,6 +112,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl
 
@@ -205,7 +207,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     libgui_vendor \
-    libstdc++.vendor \
+    libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
@@ -480,11 +482,10 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc_snxxx@1.2-service \
+    android.hardware.nfc-service.nxp \
     com.android.nfc_extras \
     libchrome.vendor \
     NfcNci \
-    nqnfcinfo \
     SecureElement \
     Tag
 
