@@ -1,1 +1,0 @@
-allow hwservicemanager vendor_hal_citsensorservice_xiaomi_default:binder { call transfer };
