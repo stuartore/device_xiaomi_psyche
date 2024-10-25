@@ -1,0 +1,7 @@
+genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0051/power_supply/bq2597x-master            u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate                                    u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0051/power_supply/bq2597x-master/wakeup                                                    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0051/wakeup                                                                                u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-3/3-0051/power_supply/bq2597x-slave/wakeup                                                     u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a94000.i2c/i2c-3/3-0051/wakeup                                                                                u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/vendor/vendor:extcon_usb1/wakeup                                                                                  u:object_r:sysfs_wakeup:s0
