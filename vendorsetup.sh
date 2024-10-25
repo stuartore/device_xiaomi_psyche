@@ -132,6 +132,7 @@ rising_14_patch(){
 
 superior_14_patch(){
 	git_check_dir https://github.com/LineageOS/android_device_lineage_sepolicy.git lineage-21.0 device/lineage/sepolicy
+ 	sed -i 's/vendor\/superior\/config\/common_full_phone.mk/vendor\/superior\/config\/common.mk/g' device/xiaomi/psyche/${dt_new_main_mk}
 }
 
 psyche_rom_patches(){
@@ -279,7 +280,7 @@ psyche_rom_setup(){
 	if [[ ! $(grep 'revision="android-14' .repo/manifests/default.xml) ]];then echo -e "\033[1;33m=>\033[0m SKIP - source code is \033[1;33mnot Android 14\033[0m";exit;fi
 
 	tasks=( psyche_deps dt_bringup psyche_rom_patches )
-	for task in "${tasks}"
+	for task in "${tasks[@]}"
  	do
   		$task
     	done
