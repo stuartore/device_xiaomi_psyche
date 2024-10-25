@@ -281,7 +281,7 @@ psyche_rom_setup(){
 	tasks=( psyche_deps dt_bringup psyche_rom_patches )
 	for task in "${tasks}"
  	do
-  		task
+  		$task
     	done
 }
 
