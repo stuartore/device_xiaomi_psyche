@@ -248,6 +248,8 @@ source_xiaomi_sm8250-devs(){
 source_xiaomi_psyche-devs(){
 	git_check_dir https://github.com/xiaomi-psyche-development/android_device_xiaomi_psyche lineage-21 device/xiaomi/psyche
  	git_check_dir https://github.com/xiaomi-psyche-development/android_device_xiaomi_sm8250-common lineage-21 device/xiaomi/sm8250-common
+  	# sm8250 source tmp
+   	# git_check_dir https://github.com/pachdomenic/android_device_xiaomi_sm8250-common lineage-21 device/xiaomi/sm8250-common
  	git_check_dir https://github.com/xiaomi-psyche-development/proprietary_vendor_xiaomi_psyche lineage-21 vendor/xiaomi/psyche
   	git_check_dir https://github.com/xiaomi-psyche-development/proprietary_vendor_xiaomi_sm8250-common lineage-21 vendor/xiaomi/sm8250-common
    	git_check_dir https://github.com/Rocky7842/android_kernel_xiaomi_sm8250 lineage-21 kernel/xiaomi/sm8250
