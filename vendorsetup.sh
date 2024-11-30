@@ -154,6 +154,7 @@ dt_bringup(){
     	case $rom_spec_str in
      		"rising")
        			rom_spec_str="lineage"
+	  		rom_vendor_str="rising"
 	  		;;
      	esac
 
@@ -165,6 +166,10 @@ dt_bringup(){
 	sed -i 's/'"${dt_old_str}"'/'"${rom_spec_str}"'/g' AndroidProducts.mk
 	sed -i 's/'"${dt_old_str}"'/'"${rom_spec_str}"'/g' $dt_main_mk
 	sed -i 's/vendor\/'"${dt_old_str}"'/vendor\/'"${rom_spec_str}"'/g' BoardConfig*.mk
+	if [[ $(grep 'include device/xiaomi/sm8250-common' *.mk) ]];then
+                sed -i 's/vendor\/.*\/config/vendor\/'"${rom_vendor_str}"'\/config/g' ../sm8250-common/BoardConfig*.mk
+                sed -i 's/TARGET_2ND_ARCH_VARIANT := .*/TARGET_2ND_ARCH_VARIANT := armv8-2a/g' ../sm8250-common/BoardConfig*.mk
+        fi
 
 	dt_new_main_mk="${rom_spec_str}_psyche.mk"
 	if [[ ! -f $dt_new_main_mk ]];then
