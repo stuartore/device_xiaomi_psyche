@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Whether to show a preference item for regulatory information in About phone -->
+    <bool name="config_show_regulatory_info">true</bool>
+
+</resources>

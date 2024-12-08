@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "SettingsTargetOverlayPsycheCN",
+    resource_dirs: ["res"],
+    vendor: true,
+}
