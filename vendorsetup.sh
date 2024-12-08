@@ -68,7 +68,7 @@ TARGET_INCLUDE_PIXEL_CHARGER := true
 
 # Maintainer
 ALPHA_BUILD_TYPE := UNOFFICIAL
-ALPHA_MAINTAINER := Flicker-Android-Devices
+ALPHA_MAINTAINER := 斯图尔特
 
 # GMS
 WITH_GMS := true
@@ -110,7 +110,7 @@ afterlife_specs(){
 	cat>>$1<<SPECS
 AFTERLIFE_GAPPS := true
 GAPPS_BASIC := true
-AFTERLIFE_MAINTAINER := Flicker-Android-Devices
+AFTERLIFE_MAINTAINER := 斯图尔特
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 SPECS
 }
@@ -248,8 +248,8 @@ turn_psyche_15_dt(){
 }
 
 source_xiaomi_flicker_android(){
-	git_check_dir https://github.com/Flicker-Android-Devices/device_xiaomi_psyche fifteen device/xiaomi/psyche
-	git_check_dir https://github.com/Flicker-Android-Devices/device_xiaomi_sm8250-common.git fifteen device/xiaomi/sm8250-common
+	git_check_dir https://github.com/stuartore/device_xiaomi_psyche fifteen device/xiaomi/psyche
+	git_check_dir https://github.com/stuartore/device_xiaomi_sm8250-common.git fifteen device/xiaomi/sm8250-common
 	git_check_dir https://github.com/Flicker-Android-Devices/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
 	git_check_dir https://github.com/Flicker-Android-Devices/vendor_xiaomi_sm8250-common.git fifteen vendor/xiaomi/sm8250-common
 	git_check_dir https://github.com/Flicker-Android-Devices/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
