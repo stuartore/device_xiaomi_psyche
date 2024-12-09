@@ -255,12 +255,20 @@ source_xiaomi_flicker_android(){
 	git_check_dir https://github.com/Flicker-Android-Devices/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
 }
 
+source_amiya_project(){
+	git_check_dir https://github.com/stuartore/device_xiaomi_psyche fifteen device/xiaomi/psyche
+	git_check_dir https://github.com/Amiya-project/android_device_xiaomi_sm8250-common 15 device/xiaomi/sm8250-common
+	git_check_dir https://github.com/Flicker-Android-Devices/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
+	git_check_dir https://github.com/Amiya-project/proprietary_vendor_xiaomi_sm8250-common 15 vendor/xiaomi/sm8250-common
+	git_check_dir https://github.com/Flicker-Android-Devices/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
+}
+
 psyche_deps(){
 	rom_spec_str="$(basename "$(find vendor -maxdepth 3 -type f -iname "common.mk" | sed 's/config.*//g')")"
 	mkdir -p device/xiaomi vendor/xiaomi kernel/xiaomi
 
 	# turn xiaomi psyche default dt - test
-	turn_psyche_15_dt source_xiaomi_flicker_android
+	turn_psyche_15_dt source_amiya_project
 
 	# Hardware xiaomi
 	git_check_dir https://github.com/Flicker-Android-Devices/hardware_xiaomi.git fifteen hardware/xiaomi
