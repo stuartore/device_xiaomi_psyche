@@ -242,14 +242,6 @@ turn_psyche_14_dt(){
 	$1
 }
 
-source_xiaomi_sm8250-devs(){
-	git_check_dir https://github.com/stuartore/device_xiaomi_psyche.git fourteen device/xiaomi/psyche
-	git_check_dir https://github.com/xiaomi-sm8250-devs/android_device_xiaomi_sm8250-common.git lineage-21 device/xiaomi/sm8250-common
-	git_check_dir https://github.com/stuartore/vendor_xiaomi_psyche fourteen lineage-21 vendor/xiaomi/psyche
-	git_check_dir https://github.com/xiaomi-sm8250-devs/proprietary_vendor_xiaomi_sm8250-common.git lineage-21 vendor/xiaomi/sm8250-common
-	git_check_dir https://github.com/Rocky7842/android_kernel_xiaomi_sm8250 lineage-21 kernel/xiaomi/sm8250
-}
-
 source_xiaomi_psyche-devs(){
 	git_check_dir https://github.com/xiaomi-psyche-development/android_device_xiaomi_psyche lineage-21 device/xiaomi/psyche
  	git_check_dir https://github.com/xiaomi-psyche-development/android_device_xiaomi_sm8250-common lineage-21 device/xiaomi/sm8250-common
