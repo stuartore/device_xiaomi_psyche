@@ -1,7 +1,7 @@
 #!/bin/bash
 # This file is generated for Xiaomi 12X (psyche)
 
-dt_bringup_complished=1
+dt_bringup_complished=0
 
 # ROM specs
 rising_specs(){
@@ -102,7 +102,7 @@ CHERISH_VANILLA := true
 CHERISH_BUILD_TYPE := UNOFFICIAL
 TARGET_USE_PIXEL_LAUNCHER := false
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.cherish.maintainer=Flicker-Android-Devices
+    ro.cherish.maintainer=斯图尔特
 SPECS
 }
 
@@ -247,20 +247,12 @@ turn_psyche_15_dt(){
 	$1
 }
 
-source_xiaomi_flicker_android(){
+source_xiaomi_psyche(){
 	git_check_dir https://github.com/stuartore/device_xiaomi_psyche fifteen device/xiaomi/psyche
 	git_check_dir https://github.com/stuartore/device_xiaomi_sm8250-common.git fifteen device/xiaomi/sm8250-common
-	git_check_dir https://github.com/Flicker-Android-Devices/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
-	git_check_dir https://github.com/Flicker-Android-Devices/vendor_xiaomi_sm8250-common.git fifteen vendor/xiaomi/sm8250-common
-	git_check_dir https://github.com/Flicker-Android-Devices/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
-}
-
-source_amiya_project(){
-	git_check_dir https://github.com/stuartore/device_xiaomi_psyche fifteen device/xiaomi/psyche
-	git_check_dir https://github.com/Amiya-project/android_device_xiaomi_sm8250-common 15 device/xiaomi/sm8250-common
-	git_check_dir https://github.com/Flicker-Android-Devices/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
-	git_check_dir https://github.com/Amiya-project/proprietary_vendor_xiaomi_sm8250-common 15 vendor/xiaomi/sm8250-common
-	git_check_dir https://github.com/Flicker-Android-Devices/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
+	git_check_dir https://github.com/stuartore/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
+	git_check_dir https://github.com/stuartore/vendor_xiaomi_sm8250-common.git fifteen vendor/xiaomi/sm8250-common
+	git_check_dir https://github.com/stuartore/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
 }
 
 psyche_deps(){
@@ -268,7 +260,7 @@ psyche_deps(){
 	mkdir -p device/xiaomi vendor/xiaomi kernel/xiaomi
 
 	# turn xiaomi psyche default dt - test
-	turn_psyche_15_dt source_amiya_project
+	turn_psyche_15_dt source_xiaomi_psyche
 
 	# Hardware xiaomi
 	git_check_dir https://github.com/Flicker-Android-Devices/hardware_xiaomi.git fifteen hardware/xiaomi

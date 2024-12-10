@@ -49,24 +49,3 @@ PRODUCT_NO_CAMERA := false
 
 # MATLOG
 TARGET_INCLUDE_MATLOG := false
-
-# Interit from RisingTechOSS - AUTOADD
-
-# RisingOS
-
-# GMS
-WITH_GMS := true
-TARGET_CORE_GMS := true
-
-#TARGET_CORE_GMS_EXTRAS := true
-PRODUCT_PACKAGES += \
-    Photos \
-    MarkupGoogle \
-    LatinIMEGooglePrebuilt \
-    AiWallpapers \
-    WallpaperEmojiPrebuilt \
-    PrebuiltDeskClockGoogle \
-    CalculatorGooglePrebuilt \
-    Velvet
-
-TARGET_DEFAULT_PIXEL_LAUNCHER := true
