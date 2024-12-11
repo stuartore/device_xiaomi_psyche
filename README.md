@@ -28,3 +28,7 @@ Front camera | 32MP in-display
 ## Device picture
 
 ![Xiaomi 12X](https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1646294068.83662193.png "Xiaomi 12X in blue")
+
+### Contributors
+- [斯图尔特](https://github.com/stuartore)
+- [Flicker372](https://github.com/Flicker372)
