@@ -23,7 +23,11 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_psyche
 TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_psyche
 
 # Kernel
-TARGET_KERNEL_CONFIG := psyche_defconfig
+TARGET_KERNEL_CONFIG := \
+    vendor/kona-perf_defconfig \
+    vendor/debugfs.config \
+    vendor/xiaomi/sm8250-common.config \
+    vendor/xiaomi/psyche.config
 
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := psyche
