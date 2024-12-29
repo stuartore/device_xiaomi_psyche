@@ -189,7 +189,7 @@ dt_bringup(){
 				;;
 			"superior")
 				superior_specs $dt_new_main_mk
-    			sed -i 's/common_full_phone/common/g' $dt_new_main_mk
+    			        sed -i 's/common_full_phone/common/g' $dt_new_main_mk
 				;;
 			"derp")
 				derpfest_specs $dt_new_main_mk
@@ -255,6 +255,8 @@ source_xiaomi_psyche(){
 	# git_check_dir https://github.com/stuartore/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
  	# magictime kernel
   	git_check_dir https://github.com/TIMISONG-dev/kernel_xiaomi_sm8250 magictime-new kernel/xiaomi/sm8250
+        # hardware xiaomi
+	git_check_dir https://github.com/LineageOS/android_hardware_xiaomi lineage-22.0 hardware/xiaomi
 }
 
 psyche_deps(){
@@ -263,9 +265,6 @@ psyche_deps(){
 
 	# turn xiaomi psyche default dt - test
 	turn_psyche_15_dt source_xiaomi_psyche
-
-	# Hardware xiaomi
-	git_check_dir https://github.com/Flicker-Android-Devices/hardware_xiaomi.git fifteen hardware/xiaomi
 	
 	# Other - rom patches
 	case $rom_spec_str in
