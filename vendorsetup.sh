@@ -248,14 +248,14 @@ turn_psyche_15_dt(){
 }
 
 source_xiaomi_psyche(){
-	git_check_dir https://github.com/stuartore/device_xiaomi_psyche fifteen device/xiaomi/psyche
-	git_check_dir https://github.com/stuartore/device_xiaomi_sm8250-common.git fifteen device/xiaomi/sm8250-common
-	git_check_dir https://github.com/stuartore/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
-	git_check_dir https://github.com/stuartore/vendor_xiaomi_sm8250-common.git fifteen vendor/xiaomi/sm8250-common
+	git_check_dir https://gitcode.com/stuartore/device_xiaomi_psyche fifteen device/xiaomi/psyche
+	git_check_dir https://gitcode.com/stuartore/device_xiaomi_sm8250-common.git fifteen device/xiaomi/sm8250-common
+	git_check_dir https://gitcode.com/stuartore/vendor_xiaomi_psyche.git fifteen vendor/xiaomi/psyche
+	git_check_dir https://gitcode.com/stuartore/vendor_xiaomi_sm8250-common.git fifteen vendor/xiaomi/sm8250-common
 	# git_check_dir https://github.com/stuartore/kernel_xiaomi_sm8250.git fourteen kernel/xiaomi/sm8250
  	# magictime kernel
   	git_check_dir https://github.com/TIMISONG-dev/kernel_xiaomi_sm8250 magictime-new kernel/xiaomi/sm8250
-        # hardware xiaomi
+    # hardware xiaomi
 	git_check_dir https://github.com/LineageOS/android_hardware_xiaomi lineage-22.0 hardware/xiaomi
 }
 
