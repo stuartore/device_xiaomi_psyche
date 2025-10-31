@@ -1,0 +1,1 @@
+require board=psyche|psyche_global|psyche_in
